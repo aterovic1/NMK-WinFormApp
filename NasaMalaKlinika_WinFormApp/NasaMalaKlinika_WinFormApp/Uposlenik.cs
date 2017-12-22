@@ -13,7 +13,7 @@ namespace NasaMalaKlinika
         public string username;
         public string password;
 
-        public Uposlenik(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, BracnoStanje brSt, decimal plata, string username, string password) :
+        public Uposlenik(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, decimal plata, string username, string password) :
             base(ime, pre, rod, jmbg, adr, spol, brSt)
         {
             this.Plata = plata;

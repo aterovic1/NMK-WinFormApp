@@ -7,14 +7,14 @@ using KlinikaOrdinacija;
 
 namespace NasaMalaKlinika
 {
-    public class Klinika
+    public static class Klinika
     { 
-        public List<Pacijent> pacijenti;
-        public List<Ordinacija> ordinacije;
-        public List<Uposlenik> uposlenici;
-        private decimal ukupnaZarada;
+        public static List<Pacijent> pacijenti = new List<Pacijent>();
+        public static List<Ordinacija> ordinacije = new List<Ordinacija>();
+        public static List<Uposlenik> uposlenici = new List<Uposlenik>();
+        private static decimal ukupnaZarada = 0;
 
-        public Klinika()
+        /*public Klinika()
         {
             pacijenti = new List<Pacijent>();
             ordinacije = new List<Ordinacija>();
@@ -31,53 +31,57 @@ namespace NasaMalaKlinika
             pacijenti = new List<Pacijent>();
             ordinacije = new List<Ordinacija>(o);
             uposlenici = new List<Uposlenik>(u);
-        }
-        public void RegistrirajPacijenta(Pacijent p)
+        }*/
+        public static void RegistrirajPacijenta(Pacijent p)
         {
             pacijenti.Add(p);
         }
-        public Pacijent DajPacijentaSaImenom(string ime, string prezime)
+        public static void RegistrirajUposlenog(Uposlenik u)
+        {
+            uposlenici.Add(u);
+        }
+        public static Pacijent DajPacijentaSaImenom(string ime, string prezime)
         {
             return pacijenti.Find(p => p.ime == ime && p.prezime == prezime);
         }
-        public Pacijent DajPacijentaSaJMBG(string jmbg)
+        public static Pacijent DajPacijentaSaJMBG(string jmbg)
         {
             return pacijenti.Find(p => p.maticniBroj == jmbg);
         }
-        public Pacijent DajPacijentaSaId(Int64 id)
+        public static Pacijent DajPacijentaSaId(Int64 id)
         {
             Pacijent p = pacijenti.Find(x => x.idPacijenta == id);
             if (p == null)
                 throw new Exception("Ne postoji pacijent sa tim id");
             return p;
         }
-        public void IzbrisiPacijenta(Pacijent p)
+        public static void IzbrisiPacijenta(Pacijent p)
         {
             if (pacijenti.Exists(x => x.idPacijenta == p.idPacijenta))
                 pacijenti.Remove(p);
             else
                 throw new Exception("Ne postoji taj pacijent");
         }
-        public void PrikaziPregledePacijenta(Pacijent p)
+        public static void PrikaziPregledePacijenta(Pacijent p)
         {
             p.zakazaniPregledi.Sort((x, y) => x.ordinacija.listaCekanja.Count().CompareTo(y.ordinacija.listaCekanja.Count()));
             Console.WriteLine(p.PrikaziZakazanePreglede());
         }
-        public string PrikaziKartonPacijenta(int id)
+        public static string PrikaziKartonPacijenta(int id)
         {
             Pacijent p = DajPacijentaSaId(id);
             if (p.karton == null)
                 throw new Exception("Pacijent nema kreiran karton");
             return p.ToString();
         }
-        public void RegistrirajNoviPregled(Pacijent pacijent, Ordinacija ordinacija, Pregled pregled)
+        public static void RegistrirajNoviPregled(Pacijent pacijent, Ordinacija ordinacija, Pregled pregled)
         {
             if(pacijent is PacijentSmrtniIshod)
                 throw new Exception("Pacijent je nazalost preminuo, ne mozete registrirati pregled");
             pacijent.ZakaziPregled(pregled);
             ordinacija.StaviUListuCekanja(pacijent);
         }
-        public void RegistrirajNoviKarton(int id, Karton k)
+        public static void RegistrirajNoviKarton(int id, Karton k)
         {
             Pacijent p = DajPacijentaSaId(id);
             if (p is PacijentSmrtniIshod)
@@ -87,7 +91,7 @@ namespace NasaMalaKlinika
             else
                 throw new Exception("Pacijent vec ima kreiran karton");
         }
-        public decimal ObracunajPacijenta(Pacijent pacijent, List<Pregled> preglediKojePlaca, int brojRata)
+        public static decimal ObracunajPacijenta(Pacijent pacijent, List<Pregled> preglediKojePlaca, int brojRata)
         {
             if (preglediKojePlaca.Count == 0)
                 throw new Exception("Pacijent nije obavio nijedan pregled");
@@ -95,7 +99,7 @@ namespace NasaMalaKlinika
             ukupnaZarada += iznosNaplate;
             return iznosNaplate;
         }
-        public string ProcenatPacijenataPoGodinama()
+        public static string ProcenatPacijenataPoGodinama()
         {
             int brIspodOsamnaest = pacijenti.Count(x => x.datumRođenja.AddYears(18) > DateTime.Now);
             int brOsamnaestDoTrideset = pacijenti.Count(x => x.datumRođenja.AddYears(18) <= DateTime.Now && x.datumRođenja.AddYears(30) > DateTime.Now);
@@ -108,7 +112,7 @@ namespace NasaMalaKlinika
             s += "-preko 50 godina: " + Math.Round(Convert.ToDouble(brPrekoPedeset) * 100 / pacijenti.Count(), 2) + "%\n";
             return s; 
         }   
-        public string NajposjecenijeOrdinacije()
+        public static string NajposjecenijeOrdinacije()
         {
             var ord = ordinacije.OrderByDescending(x => x.doktor.brojPacijenata).ToList();
             string s = "Najposjecenije ordinacije:\n";
@@ -117,7 +121,7 @@ namespace NasaMalaKlinika
             s += "3. " + ord.ElementAt(2).tipPregleda + " - " + "broj posjeta: " + Convert.ToString(ord.ElementAt(2).doktor.brojPacijenata) + "\n";
             return s;
         }
-        public string IzvjestajZarada()
+        public static string IzvjestajZarada()
         {
             return "Klinika je ukupno zaradila " + ukupnaZarada + " KM.";
         } 

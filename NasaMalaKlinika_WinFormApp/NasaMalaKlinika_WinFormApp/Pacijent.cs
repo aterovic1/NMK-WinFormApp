@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KlinikaOrdinacija;
+using System.Drawing;
 
 namespace NasaMalaKlinika
 {
@@ -14,17 +15,18 @@ namespace NasaMalaKlinika
         public Int64 idPacijenta { get; private set; }
         public Karton karton { get; set; }
         public List<Pregled> zakazaniPregledi { get; set; }
-        
+        public Image slika;
 
-        public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, BracnoStanje brSt) :
+        public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Image slika) :
             base(ime, pre, rod, jmbg, adr, spol, brSt)
         {
             this.idPacijenta = PACIJENT_ID;
             PACIJENT_ID++;
             this.karton = null;
             this.zakazaniPregledi = new List<Pregled>();
+            this.slika = slika;
         }
-        public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, BracnoStanje brSt, Karton karton, List<Pregled> zakazani) :
+        public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Karton karton, List<Pregled> zakazani) :
             base(ime, pre, rod, jmbg, adr, spol, brSt)
         {
             this.idPacijenta = PACIJENT_ID;

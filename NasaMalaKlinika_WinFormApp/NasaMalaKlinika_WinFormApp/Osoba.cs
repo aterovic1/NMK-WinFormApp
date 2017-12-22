@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace NasaMalaKlinika
 {
     public enum Spol { musko, zensko };
-    public enum BracnoStanje { neozenjen, ozenjen, razveden, udovac };
 
     public abstract class Osoba
     {
@@ -17,9 +16,9 @@ namespace NasaMalaKlinika
         public string maticniBroj { get; set; }
         public Spol spol { get; set; }
         public string adresa { get; set; }
-        public BracnoStanje bracnoStanje { get; set; }
+        public string bracnoStanje { get; set; }
 
-        public Osoba(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, BracnoStanje brSt)
+        public Osoba(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt)
         {
             if (jmbg.Length != 13)
                 throw new Exception("Neispravan JMBG");

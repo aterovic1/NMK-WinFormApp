@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,12 @@ namespace NasaMalaKlinika
     {
         public string prvaPomoc { get; set; }
 
-        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, BracnoStanje brSt, string prvaPom) :
-            base(ime, pre, rod, jmbg, adr, spol, brSt)
+        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, string prvaPom, Image slika) :
+            base(ime, pre, rod, jmbg, adr, spol, brSt, slika)
         {
             this.prvaPomoc = prvaPom;
         }
-        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, BracnoStanje brSt, Karton karton, List<Pregled> zakazani, string prvaPom) :
+        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Karton karton, List<Pregled> zakazani, string prvaPom) :
             base(ime, pre, rod, jmbg, adr, spol, brSt, karton, zakazani)
         {
             this.prvaPomoc = prvaPom;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NasaMalaKlinika;
+using System.Security.Cryptography;
 
 namespace NasaMalaKlinika_WinFormApp
 {
@@ -18,19 +19,42 @@ namespace NasaMalaKlinika_WinFormApp
             InitializeComponent();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        public string IzracunajMD5Hash(string password)
         {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
+            MD5 md5 = MD5.Create();
+            byte[] ulaz = Encoding.ASCII.GetBytes(password);
+            byte[] hash = md5.ComputeHash(ulaz);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("x2"));
+            }
+            return sb.ToString();
         }
 
         private void buttonPrijava_Click(object sender, EventArgs e)
         {
-            
+            Uposlenik u = Klinika.uposlenici.Find(x => x.username == textBoxUsername.Text && x.password == IzracunajMD5Hash(textBoxPassword.Text));
+            if(u != null)
+            {
+                string s = "Uspjesno prijavljen " + u.ime + " " + u.prezime;
+                MessageBox.Show(s);
+            }
+            else
+            {
+                MessageBox.Show("Ne postoji korisnik!");
+            }
+        }
+
+        private void buttonRegistracija_Click(object sender, EventArgs e)
+        {
+            Registracija reg = new Registracija();
+            reg.Show();
+        }
+
+        private void buttonVidljivo_Click(object sender, EventArgs e)
+        {
+            textBoxPassword.PasswordChar = (textBoxPassword.PasswordChar == '*' ? (char)0 : '*');
         }
     }
 }
