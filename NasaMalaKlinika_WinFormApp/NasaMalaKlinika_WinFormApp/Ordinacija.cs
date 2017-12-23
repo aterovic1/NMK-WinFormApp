@@ -23,6 +23,14 @@ namespace KlinikaOrdinacija
             this.cijenaPregleda = c;
             this.listaCekanja = new List<Pacijent>();
         }
+        public Ordinacija(string n, decimal c)
+        {
+            this.tipPregleda = n;
+            this.doktor = null;
+            this.zauzetAparat = false;
+            this.cijenaPregleda = c;
+            this.listaCekanja = new List<Pacijent>();
+        }
         public void StaviUListuCekanja(Pacijent p)
         {
             listaCekanja.Add(p);

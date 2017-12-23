@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Doktor.cs" />
+    <Compile Include="DoktorForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoktorForma.Designer.cs">
+      <DependentUpon>DoktorForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="HitniPacijent.cs" />
     <Compile Include="IObracun.cs" />
     <Compile Include="Karton.cs" />
@@ -56,6 +62,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NemedicinskoOsoblje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NemedicinskoOsoblje.Designer.cs">
+      <DependentUpon>NemedicinskoOsoblje.cs</DependentUpon>
     </Compile>
     <Compile Include="Ordinacija.cs" />
     <Compile Include="Osoba.cs" />
@@ -71,8 +83,14 @@
       <DependentUpon>Registracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Uposlenik.cs" />
+    <EmbeddedResource Include="DoktorForma.resx">
+      <DependentUpon>DoktorForma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NemedicinskoOsoblje.resx">
+      <DependentUpon>NemedicinskoOsoblje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

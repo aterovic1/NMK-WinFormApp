@@ -8,15 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NasaMalaKlinika;
+using KlinikaOrdinacija;
 using System.Security.Cryptography;
 
 namespace NasaMalaKlinika_WinFormApp
 {
     public partial class Login : Form
     {
+        Ordinacija ordinacija;
+
         public Login()
         {
             InitializeComponent();
+            ordinacija = null;
         }
 
         public string IzracunajMD5Hash(string password)
@@ -34,11 +38,22 @@ namespace NasaMalaKlinika_WinFormApp
 
         private void buttonPrijava_Click(object sender, EventArgs e)
         {
+            if(textBoxUsername.Text.Length == 0 && textBoxPassword.Text.Length == 0)
+            {
+                DoktorForma doktor = new DoktorForma();
+                doktor.Show();
+            }
             Uposlenik u = Klinika.uposlenici.Find(x => x.username == textBoxUsername.Text && x.password == IzracunajMD5Hash(textBoxPassword.Text));
             if(u != null)
             {
-                string s = "Uspjesno prijavljen " + u.ime + " " + u.prezime;
-                MessageBox.Show(s);
+                if (u is Doktor)
+                {
+                    
+                    string s = "Uspjesno prijavljen " + u.ime + " " + u.prezime;
+                    MessageBox.Show(s);
+                    DoktorForma dok = new DoktorForma(ref u);
+                    dok.Show();
+                }
             }
             else
             {
