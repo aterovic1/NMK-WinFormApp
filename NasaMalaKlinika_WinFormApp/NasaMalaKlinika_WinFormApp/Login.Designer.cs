@@ -116,6 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(684, 361);
             this.Controls.Add(this.buttonVidljivo);
             this.Controls.Add(this.buttonRegistracija);
@@ -126,9 +127,11 @@
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.textBoxPassword);
             this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
-            this.Text = "Welcome!";
+            this.Text = "Naša Mala Klinika";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 
