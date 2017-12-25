@@ -50,5 +50,13 @@ namespace NasaMalaKlinika
             }
             return s;
         } 
+        public string DajAnamnezu()
+        {
+            string s = "";
+            s += "Ranije bolesti: " + ranijeBolesti + "\n";
+            s += "Alergije: " + alergije + "\n";
+            s += "Zdravstveno stanje u porodici: " + zdravStanjeUPorodici;
+            return s;
+        }
     }
 }

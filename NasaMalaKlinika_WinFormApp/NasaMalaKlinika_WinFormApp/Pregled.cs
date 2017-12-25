@@ -41,7 +41,7 @@ namespace NasaMalaKlinika
             s += (obavljen == true) ? "Rezultat: " + rezultat + "\n" : "";
             s += (obavljen == true) ? "Terapija: " + terapija + "\n" : "";
             s += (obavljen == true) ? "Pregled obavio doktor " : "Pregled zakazan kod doktora ";
-            s += ordinacija.doktor.ime + " " + ordinacija.doktor.prezime + ", ordinacija za " + ordinacija.tipPregleda + "\n\n";
+            s += ordinacija.doktor.ime + " " + ordinacija.doktor.prezime + ", ordinacija za " + ordinacija.tipPregleda + "\n";
             return s;
         }
         public void AzurirajPregled(DateTime dat, string rez, string ter)

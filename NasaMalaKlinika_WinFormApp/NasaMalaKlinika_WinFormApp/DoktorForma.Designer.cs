@@ -157,7 +157,7 @@ namespace NasaMalaKlinika_WinFormApp
             // 
             this.buttonObaviPregled.BackColor = System.Drawing.SystemColors.Control;
             this.buttonObaviPregled.Enabled = false;
-            this.buttonObaviPregled.Location = new System.Drawing.Point(268, 215);
+            this.buttonObaviPregled.Location = new System.Drawing.Point(242, 213);
             this.buttonObaviPregled.Name = "buttonObaviPregled";
             this.buttonObaviPregled.Size = new System.Drawing.Size(155, 43);
             this.buttonObaviPregled.TabIndex = 3;
@@ -201,6 +201,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Obavljeni pregledi";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Leave += new System.EventHandler(this.tabPage2_Leave);
             // 
             // richTextBoxDetaljno
             // 

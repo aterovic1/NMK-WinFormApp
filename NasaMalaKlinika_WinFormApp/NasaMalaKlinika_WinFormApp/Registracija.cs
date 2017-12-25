@@ -72,6 +72,7 @@ namespace NasaMalaKlinika_WinFormApp
         {
             comboBoxOrdinacije.Enabled = true;
             labelOrdinacija.Enabled = true;
+            comboBoxOrdinacije.SelectedIndex = comboBoxOrdinacije.Items.IndexOf("Opšti pregled");
         }
 
         private void radioButtonObicni_CheckedChanged(object sender, EventArgs e)

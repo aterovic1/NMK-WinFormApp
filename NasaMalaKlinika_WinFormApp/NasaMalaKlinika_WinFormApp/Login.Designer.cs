@@ -35,8 +35,8 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.labelRegistracija = new System.Windows.Forms.Label();
-            this.buttonRegistracija = new System.Windows.Forms.Button();
             this.buttonVidljivo = new System.Windows.Forms.Button();
+            this.linkLabelRegistracija = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // buttonPrijava
@@ -92,16 +92,6 @@
             this.labelRegistracija.TabIndex = 5;
             this.labelRegistracija.Text = "Nemate račun?";
             // 
-            // buttonRegistracija
-            // 
-            this.buttonRegistracija.Location = new System.Drawing.Point(433, 250);
-            this.buttonRegistracija.Name = "buttonRegistracija";
-            this.buttonRegistracija.Size = new System.Drawing.Size(183, 29);
-            this.buttonRegistracija.TabIndex = 6;
-            this.buttonRegistracija.Text = "Registracija";
-            this.buttonRegistracija.UseVisualStyleBackColor = true;
-            this.buttonRegistracija.Click += new System.EventHandler(this.buttonRegistracija_Click);
-            // 
             // buttonVidljivo
             // 
             this.buttonVidljivo.Image = ((System.Drawing.Image)(resources.GetObject("buttonVidljivo.Image")));
@@ -112,14 +102,25 @@
             this.buttonVidljivo.UseVisualStyleBackColor = true;
             this.buttonVidljivo.Click += new System.EventHandler(this.buttonVidljivo_Click);
             // 
+            // linkLabelRegistracija
+            // 
+            this.linkLabelRegistracija.AutoSize = true;
+            this.linkLabelRegistracija.Location = new System.Drawing.Point(430, 250);
+            this.linkLabelRegistracija.Name = "linkLabelRegistracija";
+            this.linkLabelRegistracija.Size = new System.Drawing.Size(135, 16);
+            this.linkLabelRegistracija.TabIndex = 8;
+            this.linkLabelRegistracija.TabStop = true;
+            this.linkLabelRegistracija.Text = "Registrujte se sada";
+            this.linkLabelRegistracija.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegistracija_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(684, 361);
+            this.Controls.Add(this.linkLabelRegistracija);
             this.Controls.Add(this.buttonVidljivo);
-            this.Controls.Add(this.buttonRegistracija);
             this.Controls.Add(this.labelRegistracija);
             this.Controls.Add(this.buttonPrijava);
             this.Controls.Add(this.labelPassword);
@@ -145,8 +146,8 @@
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Button buttonPrijava;
         private System.Windows.Forms.Label labelRegistracija;
-        private System.Windows.Forms.Button buttonRegistracija;
         private System.Windows.Forms.Button buttonVidljivo;
+        private System.Windows.Forms.LinkLabel linkLabelRegistracija;
     }
 }
 

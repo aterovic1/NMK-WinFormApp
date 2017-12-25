@@ -16,8 +16,8 @@ namespace NasaMalaKlinika
         {
             this.prvaPomoc = prvaPom;
         }
-        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Karton karton, List<Pregled> zakazani, string prvaPom) :
-            base(ime, pre, rod, jmbg, adr, spol, brSt, karton, zakazani)
+        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Karton karton, List<Pregled> zakazani, string prvaPom, string username, string password) :
+            base(ime, pre, rod, jmbg, adr, spol, brSt, karton, zakazani, username, password)
         {
             this.prvaPomoc = prvaPom;
         }

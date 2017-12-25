@@ -135,5 +135,10 @@ namespace NasaMalaKlinika_WinFormApp
                 richTextBoxDetaljno.Text = "";
             }
         }
+
+        private void tabPage2_Leave(object sender, EventArgs e)
+        {
+            richTextBoxDetaljno.Text = "";
+        }
     }
 }
