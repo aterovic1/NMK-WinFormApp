@@ -21,6 +21,11 @@ namespace NasaMalaKlinika
         {
             this.prvaPomoc = prvaPom;
         }
+        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, string prvaPom) :
+            base(ime, pre, rod, jmbg, adr, spol, brSt)
+        {
+            this.prvaPomoc = prvaPom;
+        }
         public override string ToString()
         {
             string s = "Pacijentu je pruzena prva pomoc: " + prvaPomoc + " prilikom dolaska na kliniku\n";

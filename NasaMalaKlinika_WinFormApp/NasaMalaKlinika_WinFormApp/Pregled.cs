@@ -22,7 +22,7 @@ namespace NasaMalaKlinika
         {
             get
             {
-                return IdPregleda;
+                return idPregleda;
             }
         }
         public Pregled(Ordinacija ord)
@@ -51,5 +51,14 @@ namespace NasaMalaKlinika
             this.rezultat = rez;
             this.obavljen = true;
         } 
+        public string DajDetaljePregleda()
+        {
+            string s = "";
+            s += "ID pregleda: " + IdPregleda.ToString() + "\n";
+            s += "Pregled obavljen: " + datumPregleda.ToString("d") + "\n";
+            s += "Rezultat: " + rezultat + "\n";
+            s += "Terapija: " + terapija + "\n";
+            return s;
+        }
     }
 }

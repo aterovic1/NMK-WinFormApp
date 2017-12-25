@@ -23,7 +23,6 @@ namespace NasaMalaKlinika_WinFormApp
             comboBoxBrStanje.Items.Clear();
             comboBoxBrStanje.Items.AddRange(new object[] { "Udata", "Neudata", "Razvedena", "Udovica" });
             comboBoxBrStanje.SelectedIndex = comboBoxBrStanje.Items.IndexOf("Neudata");
-            
         }
 
         private void radioButtonMusko_CheckedChanged(object sender, EventArgs e)

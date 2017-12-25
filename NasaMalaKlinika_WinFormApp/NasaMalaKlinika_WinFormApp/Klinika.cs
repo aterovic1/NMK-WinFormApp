@@ -11,18 +11,18 @@ namespace NasaMalaKlinika
     {
         public static List<Pacijent> pacijenti = new List<Pacijent>();
         public static List<Ordinacija> ordinacije = new List<Ordinacija> {
-            new Ordinacija("Kardioloski pregled", 600),
-            new Ordinacija("Dermatoloski pregled", 450),
+            new Ordinacija("Kardiološki pregled", 600),
+            new Ordinacija("Dermatološki pregled", 450),
             new Ordinacija("Ortopedski pregled", 390),
-            new Ordinacija("Internisticki pregled", 710),
-            new Ordinacija("Otorinolaringoloski pregled", 480),
-            new Ordinacija("Oftamoloski pregled", 185),
+            new Ordinacija("Internistički pregled", 710),
+            new Ordinacija("Otorinolaringološki pregled", 480),
+            new Ordinacija("Oftamološki pregled", 185),
             new Ordinacija("Laboratorijski pregled", 720),
-            new Ordinacija("Stomatoloski pregled", 540),
-            new Ordinacija("Opsti pregled", 300)
+            new Ordinacija("Stomatološki pregled", 540),
+            new Ordinacija("Opšti pregled", 300)
         };
 
-        public static List<Uposlenik> uposlenici = new List<Uposlenik> {
+        /*public static List<Uposlenik> uposlenici = new List<Uposlenik> {
 
         new Doktor("Meho", "Karabeg", Convert.ToDateTime("05.12.1975."), "0512975114528", "Behdzeta Mutevelica 56", Spol.musko, "Oženjen", 3500, "mkarabeg", "pass"),
         new Doktor("Almir", "Kardovic", Convert.ToDateTime("15.08.1989."), "1508989147854", "Zmaja od Bosne 24", Spol.musko, "Neoženjen", 3000, "akardovic", "pass"),
@@ -33,9 +33,9 @@ namespace NasaMalaKlinika
         new Doktor("Asim", "Omerovic", Convert.ToDateTime("01.11.1984."), "0111984663281", "Nedima Filipovica 12", Spol.musko, "neoženjen", 3560, "aomerovic", "pass"),
         new Doktor("Lejla", "Durakovic", Convert.ToDateTime("10.03.1976."), "1003976541219", "Avdage Sahinagica 19", Spol.zensko, "Udovica", 2180, "ldurakovic", "pass"),
         new Doktor("Osman", "Kustura", Convert.ToDateTime("14.02.1969."), "1402969365241", "Kasindolska 147", Spol.musko, "Oženjen", 3250, "okustura", "pass")
-        };
+        };*/
 
-
+        public static List<Uposlenik> uposlenici = new List<Uposlenik>();
         private static decimal ukupnaZarada = 0;
 
         /*public Klinika()
@@ -67,6 +67,17 @@ namespace NasaMalaKlinika
         public static Pacijent DajPacijentaSaImenom(string ime, string prezime)
         {
             return pacijenti.Find(p => p.ime == ime && p.prezime == prezime);
+        }
+        public static void PoveziDoktoraSaOrdinacijom(Ordinacija ordinacija, Doktor doktor)
+        {
+            if (ordinacija.doktor == null)
+            {
+                ordinacija.doktor = doktor;
+            }
+            else
+            {
+                throw new Exception("Ordinacija vec ima doktora!");
+            }
         }
         public static Pacijent DajPacijentaSaJMBG(string jmbg)
         {

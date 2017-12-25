@@ -131,6 +131,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Naša Mala Klinika";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();

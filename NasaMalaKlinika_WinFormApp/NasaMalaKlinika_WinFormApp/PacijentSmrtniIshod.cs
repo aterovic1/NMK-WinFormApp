@@ -17,6 +17,11 @@ namespace NasaMalaKlinika
             this.vrijemeSmrti = vrijemeSmrti;
             this.uzrokSmrti = uzrokSmrti;
         }
+        public PacijentSmrtniIshod(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, string prvaPom, DateTime vrijemeSmrti, string uzrokSmrti) : base(ime, pre, rod, jmbg, adr, spol, brSt, prvaPom)
+        {
+            this.vrijemeSmrti = vrijemeSmrti;
+            this.uzrokSmrti = uzrokSmrti;
+        }
         public override string ToString()
         {
             string s = "Vrijeme smrti: " + Convert.ToString(vrijemeSmrti.Hour, vrijemeSmrti.Minute) + "\n";

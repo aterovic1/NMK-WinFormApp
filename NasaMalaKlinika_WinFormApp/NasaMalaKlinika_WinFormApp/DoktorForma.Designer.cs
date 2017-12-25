@@ -1,4 +1,5 @@
 ﻿using NasaMalaKlinika;
+using System.Windows.Forms;
 
 namespace NasaMalaKlinika_WinFormApp
 {
@@ -40,14 +41,21 @@ namespace NasaMalaKlinika_WinFormApp
             this.našaMalaKllinikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlPregledi = new System.Windows.Forms.TabControl();
             this.tabPageZakazani = new System.Windows.Forms.TabPage();
+            this.labelNemaPregleda = new System.Windows.Forms.Label();
+            this.buttonObaviPregled = new System.Windows.Forms.Button();
+            this.richTextBoxPacijentDetaljno = new System.Windows.Forms.RichTextBox();
+            this.listViewZakazani = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.richTextBoxDetaljno = new System.Windows.Forms.RichTextBox();
+            this.listViewObavljeni = new System.Windows.Forms.ListView();
+            this.labelObavijest = new System.Windows.Forms.Label();
             this.Ime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Prezime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Starost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.richTextBoxZakazani = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControlPregledi.SuspendLayout();
             this.tabPageZakazani.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,7 +131,10 @@ namespace NasaMalaKlinika_WinFormApp
             // 
             // tabPageZakazani
             // 
-            this.tabPageZakazani.Controls.Add(this.richTextBoxZakazani);
+            this.tabPageZakazani.Controls.Add(this.labelNemaPregleda);
+            this.tabPageZakazani.Controls.Add(this.buttonObaviPregled);
+            this.tabPageZakazani.Controls.Add(this.richTextBoxPacijentDetaljno);
+            this.tabPageZakazani.Controls.Add(this.listViewZakazani);
             this.tabPageZakazani.Location = new System.Drawing.Point(4, 23);
             this.tabPageZakazani.Name = "tabPageZakazani";
             this.tabPageZakazani.Padding = new System.Windows.Forms.Padding(3);
@@ -131,9 +142,58 @@ namespace NasaMalaKlinika_WinFormApp
             this.tabPageZakazani.TabIndex = 0;
             this.tabPageZakazani.Text = "Zakazani pregledi";
             this.tabPageZakazani.UseVisualStyleBackColor = true;
+            this.tabPageZakazani.Leave += new System.EventHandler(this.tabPageZakazani_Leave);
+            // 
+            // labelNemaPregleda
+            // 
+            this.labelNemaPregleda.AutoSize = true;
+            this.labelNemaPregleda.ForeColor = System.Drawing.Color.Red;
+            this.labelNemaPregleda.Location = new System.Drawing.Point(22, 16);
+            this.labelNemaPregleda.Name = "labelNemaPregleda";
+            this.labelNemaPregleda.Size = new System.Drawing.Size(0, 14);
+            this.labelNemaPregleda.TabIndex = 4;
+            // 
+            // buttonObaviPregled
+            // 
+            this.buttonObaviPregled.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonObaviPregled.Enabled = false;
+            this.buttonObaviPregled.Location = new System.Drawing.Point(268, 215);
+            this.buttonObaviPregled.Name = "buttonObaviPregled";
+            this.buttonObaviPregled.Size = new System.Drawing.Size(155, 43);
+            this.buttonObaviPregled.TabIndex = 3;
+            this.buttonObaviPregled.Text = "Obavi pregled";
+            this.buttonObaviPregled.UseVisualStyleBackColor = false;
+            this.buttonObaviPregled.Click += new System.EventHandler(this.buttonObaviPregled_Click);
+            // 
+            // richTextBoxPacijentDetaljno
+            // 
+            this.richTextBoxPacijentDetaljno.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.richTextBoxPacijentDetaljno.Location = new System.Drawing.Point(423, 47);
+            this.richTextBoxPacijentDetaljno.Name = "richTextBoxPacijentDetaljno";
+            this.richTextBoxPacijentDetaljno.ReadOnly = true;
+            this.richTextBoxPacijentDetaljno.Size = new System.Drawing.Size(192, 130);
+            this.richTextBoxPacijentDetaljno.TabIndex = 2;
+            this.richTextBoxPacijentDetaljno.Text = "";
+            // 
+            // listViewZakazani
+            // 
+            this.listViewZakazani.AllowColumnReorder = true;
+            this.listViewZakazani.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.listViewZakazani.FullRowSelect = true;
+            this.listViewZakazani.GridLines = true;
+            this.listViewZakazani.Location = new System.Drawing.Point(22, 47);
+            this.listViewZakazani.Name = "listViewZakazani";
+            this.listViewZakazani.Size = new System.Drawing.Size(375, 130);
+            this.listViewZakazani.TabIndex = 1;
+            this.listViewZakazani.UseCompatibleStateImageBehavior = false;
+            this.listViewZakazani.View = System.Windows.Forms.View.Details;
+            this.listViewZakazani.SelectedIndexChanged += new System.EventHandler(this.listViewZakazani_SelectedIndexChanged);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.richTextBoxDetaljno);
+            this.tabPage2.Controls.Add(this.listViewObavljeni);
+            this.tabPage2.Controls.Add(this.labelObavijest);
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -142,13 +202,38 @@ namespace NasaMalaKlinika_WinFormApp
             this.tabPage2.Text = "Obavljeni pregledi";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // richTextBoxZakazani
+            // richTextBoxDetaljno
             // 
-            this.richTextBoxZakazani.Location = new System.Drawing.Point(24, 25);
-            this.richTextBoxZakazani.Name = "richTextBoxZakazani";
-            this.richTextBoxZakazani.Size = new System.Drawing.Size(165, 230);
-            this.richTextBoxZakazani.TabIndex = 0;
-            //this.richTextBoxZakazani.Text = (uposlenik as Doktor).ordi;
+            this.richTextBoxDetaljno.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.richTextBoxDetaljno.Location = new System.Drawing.Point(423, 47);
+            this.richTextBoxDetaljno.Name = "richTextBoxDetaljno";
+            this.richTextBoxDetaljno.ReadOnly = true;
+            this.richTextBoxDetaljno.Size = new System.Drawing.Size(192, 130);
+            this.richTextBoxDetaljno.TabIndex = 2;
+            this.richTextBoxDetaljno.Text = "";
+            // 
+            // listViewObavljeni
+            // 
+            this.listViewObavljeni.AllowColumnReorder = true;
+            this.listViewObavljeni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.listViewObavljeni.FullRowSelect = true;
+            this.listViewObavljeni.GridLines = true;
+            this.listViewObavljeni.Location = new System.Drawing.Point(22, 47);
+            this.listViewObavljeni.Name = "listViewObavljeni";
+            this.listViewObavljeni.Size = new System.Drawing.Size(375, 130);
+            this.listViewObavljeni.TabIndex = 1;
+            this.listViewObavljeni.UseCompatibleStateImageBehavior = false;
+            this.listViewObavljeni.View = System.Windows.Forms.View.Details;
+            this.listViewObavljeni.SelectedIndexChanged += new System.EventHandler(this.listViewObavljeni_SelectedIndexChanged);
+            // 
+            // labelObavijest
+            // 
+            this.labelObavijest.AutoSize = true;
+            this.labelObavijest.ForeColor = System.Drawing.Color.Red;
+            this.labelObavijest.Location = new System.Drawing.Point(29, 22);
+            this.labelObavijest.Name = "labelObavijest";
+            this.labelObavijest.Size = new System.Drawing.Size(0, 14);
+            this.labelObavijest.TabIndex = 0;
             // 
             // DoktorForma
             // 
@@ -162,10 +247,14 @@ namespace NasaMalaKlinika_WinFormApp
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "DoktorForma";
             this.Text = "DoktorForma";
+            this.Load += new System.EventHandler(this.DoktorForma_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControlPregledi.ResumeLayout(false);
             this.tabPageZakazani.ResumeLayout(false);
+            this.tabPageZakazani.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,6 +275,12 @@ namespace NasaMalaKlinika_WinFormApp
         private System.Windows.Forms.ColumnHeader Ime;
         private System.Windows.Forms.ColumnHeader Prezime;
         private System.Windows.Forms.ColumnHeader Starost;
-        private System.Windows.Forms.RichTextBox richTextBoxZakazani;
+        private System.Windows.Forms.ListView listViewZakazani;
+        private RichTextBox richTextBoxPacijentDetaljno;
+        private Button buttonObaviPregled;
+        private Label labelNemaPregleda;
+        private ListView listViewObavljeni;
+        private Label labelObavijest;
+        private RichTextBox richTextBoxDetaljno;
     }
 }

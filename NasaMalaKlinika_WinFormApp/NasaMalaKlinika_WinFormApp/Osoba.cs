@@ -41,5 +41,9 @@ namespace NasaMalaKlinika
             s += "Bracno stanje: " + bracnoStanje.ToString() + "\n\n";
             return s;
         }
+        public string DajPunoIme()
+        {
+            return ime + " " + prezime;
+        }
     }
 }

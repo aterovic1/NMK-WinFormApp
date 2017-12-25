@@ -26,6 +26,14 @@ namespace NasaMalaKlinika
             this.zakazaniPregledi = new List<Pregled>();
             this.slika = slika;
         }
+        public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt) :
+            base(ime, pre, rod, jmbg, adr, spol, brSt)
+        {
+            this.idPacijenta = PACIJENT_ID;
+            PACIJENT_ID++;
+            this.karton = null;
+            this.zakazaniPregledi = new List<Pregled>();
+        }
         public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Karton karton, List<Pregled> zakazani) :
             base(ime, pre, rod, jmbg, adr, spol, brSt)
         {
@@ -34,6 +42,10 @@ namespace NasaMalaKlinika
             this.karton = null;
             this.zakazaniPregledi = new List<Pregled>(zakazani);
             this.karton = karton;
+            foreach(Pregled pregled in zakazani)
+            {
+                pregled.ordinacija.StaviUListuCekanja(this);
+            }
         }
         public override string ToString()
         {
@@ -42,6 +54,7 @@ namespace NasaMalaKlinika
         public void ZakaziPregled(Pregled p)
         {
             zakazaniPregledi.Add(p);
+            p.ordinacija.StaviUListuCekanja(this);
         }
         public string PrikaziZakazanePreglede()
         {
@@ -74,5 +87,21 @@ namespace NasaMalaKlinika
             karton.obavljeniPregledi.ForEach(x => s += x.ordinacija.tipPregleda + ", " + x.datumPregleda.ToString("d") + "\nCijena pregleda: " + x.ordinacija.cijenaPregleda + " KM\n");
             return s;
         } 
+        public string DajPunoImeSaID()
+        {
+            return idPacijenta.ToString() + " " + ime + " " + prezime;
+        }
+        public string DajPregledeUOrdinaciji(Ordinacija ordinacija)
+        {
+            string pregledi = "";
+            foreach(Pregled pregled in karton.obavljeniPregledi)
+            {
+                if(pregled.ordinacija.Equals(ordinacija))
+                {
+                    pregledi += pregled.DajDetaljePregleda();
+                }
+            }
+            return pregledi;
+        }
     }
 }
