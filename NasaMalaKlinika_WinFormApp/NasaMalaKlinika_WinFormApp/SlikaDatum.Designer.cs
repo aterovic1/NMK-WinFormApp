@@ -31,22 +31,23 @@
             this.pictureBoxSlika = new System.Windows.Forms.PictureBox();
             this.buttonUcitajSliku = new System.Windows.Forms.Button();
             this.dateTimePickerDatumSlike = new System.Windows.Forms.DateTimePicker();
+            this.labelDatumSlike = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlika)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSlika
             // 
-            this.pictureBoxSlika.Location = new System.Drawing.Point(40, 19);
+            this.pictureBoxSlika.Location = new System.Drawing.Point(40, 9);
             this.pictureBoxSlika.Name = "pictureBoxSlika";
-            this.pictureBoxSlika.Size = new System.Drawing.Size(160, 137);
+            this.pictureBoxSlika.Size = new System.Drawing.Size(128, 128);
             this.pictureBoxSlika.TabIndex = 0;
             this.pictureBoxSlika.TabStop = false;
             // 
             // buttonUcitajSliku
             // 
-            this.buttonUcitajSliku.Location = new System.Drawing.Point(40, 174);
+            this.buttonUcitajSliku.Location = new System.Drawing.Point(40, 143);
             this.buttonUcitajSliku.Name = "buttonUcitajSliku";
-            this.buttonUcitajSliku.Size = new System.Drawing.Size(160, 30);
+            this.buttonUcitajSliku.Size = new System.Drawing.Size(128, 30);
             this.buttonUcitajSliku.TabIndex = 1;
             this.buttonUcitajSliku.Text = "Učitaj sliku";
             this.buttonUcitajSliku.UseVisualStyleBackColor = true;
@@ -54,23 +55,34 @@
             // 
             // dateTimePickerDatumSlike
             // 
-            this.dateTimePickerDatumSlike.Location = new System.Drawing.Point(23, 220);
+            this.dateTimePickerDatumSlike.Location = new System.Drawing.Point(3, 212);
             this.dateTimePickerDatumSlike.Name = "dateTimePickerDatumSlike";
             this.dateTimePickerDatumSlike.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerDatumSlike.TabIndex = 2;
             this.dateTimePickerDatumSlike.ValueChanged += new System.EventHandler(this.dateTimePickerDatumSlike_ValueChanged);
             // 
+            // labelDatumSlike
+            // 
+            this.labelDatumSlike.AutoSize = true;
+            this.labelDatumSlike.Location = new System.Drawing.Point(65, 196);
+            this.labelDatumSlike.Name = "labelDatumSlike";
+            this.labelDatumSlike.Size = new System.Drawing.Size(76, 13);
+            this.labelDatumSlike.TabIndex = 3;
+            this.labelDatumSlike.Text = "Datum slikanja";
+            // 
             // SlikaDatum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelDatumSlike);
             this.Controls.Add(this.dateTimePickerDatumSlike);
             this.Controls.Add(this.buttonUcitajSliku);
             this.Controls.Add(this.pictureBoxSlika);
             this.Name = "SlikaDatum";
-            this.Size = new System.Drawing.Size(242, 262);
+            this.Size = new System.Drawing.Size(205, 247);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlika)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -79,5 +91,6 @@
         private System.Windows.Forms.PictureBox pictureBoxSlika;
         private System.Windows.Forms.Button buttonUcitajSliku;
         private System.Windows.Forms.DateTimePicker dateTimePickerDatumSlike;
+        private System.Windows.Forms.Label labelDatumSlike;
     }
 }

@@ -11,13 +11,13 @@ namespace NasaMalaKlinika
     {
         public string prvaPomoc { get; set; }
 
-        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, string prvaPom, Image slika) :
-            base(ime, pre, rod, jmbg, adr, spol, brSt, slika)
-        {
-            this.prvaPomoc = prvaPom;
-        }
-        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Karton karton, List<Pregled> zakazani, string prvaPom, string username, string password) :
+        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Karton karton, List<Pregled> zakazani, string prvaPomoc, string username, string password) :
             base(ime, pre, rod, jmbg, adr, spol, brSt, karton, zakazani, username, password)
+        {
+            this.prvaPomoc = prvaPomoc;
+        }
+        public HitniPacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, List<Pregled> zakazani, string username, string password, Image image, string prvaPom) :
+            base(ime, pre, rod, jmbg, adr, spol, brSt, zakazani, username, password, image)
         {
             this.prvaPomoc = prvaPom;
         }

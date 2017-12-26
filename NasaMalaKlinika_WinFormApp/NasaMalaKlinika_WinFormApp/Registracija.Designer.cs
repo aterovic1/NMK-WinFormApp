@@ -48,6 +48,10 @@ namespace NasaMalaKlinika_WinFormApp
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.labelDatumRod = new System.Windows.Forms.Label();
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
+            this.labelOrdinacija = new System.Windows.Forms.Label();
+            this.comboBoxOrdinacije = new System.Windows.Forms.ComboBox();
+            this.textBoxPotvrda = new System.Windows.Forms.TextBox();
+            this.labelPotvrda = new System.Windows.Forms.Label();
             this.buttonPrikazPass = new System.Windows.Forms.Button();
             this.radioButtonObicni = new System.Windows.Forms.RadioButton();
             this.radioButtonDoktor = new System.Windows.Forms.RadioButton();
@@ -57,12 +61,8 @@ namespace NasaMalaKlinika_WinFormApp
             this.labelPass = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.groupBoxLicni = new System.Windows.Forms.GroupBox();
-            this.labelPotvrda = new System.Windows.Forms.Label();
-            this.textBoxPotvrda = new System.Windows.Forms.TextBox();
             this.buttonPonisti = new System.Windows.Forms.Button();
             this.buttonRegistrujSe = new System.Windows.Forms.Button();
-            this.comboBoxOrdinacije = new System.Windows.Forms.ComboBox();
-            this.labelOrdinacija = new System.Windows.Forms.Label();
             this.groupBoxSpol.SuspendLayout();
             this.groupBoxLogin.SuspendLayout();
             this.groupBoxLicni.SuspendLayout();
@@ -230,6 +230,54 @@ namespace NasaMalaKlinika_WinFormApp
             this.groupBoxLogin.TabStop = false;
             this.groupBoxLogin.Text = "Login podaci";
             // 
+            // labelOrdinacija
+            // 
+            this.labelOrdinacija.AutoSize = true;
+            this.labelOrdinacija.Enabled = false;
+            this.labelOrdinacija.Location = new System.Drawing.Point(21, 232);
+            this.labelOrdinacija.Name = "labelOrdinacija";
+            this.labelOrdinacija.Size = new System.Drawing.Size(94, 14);
+            this.labelOrdinacija.TabIndex = 11;
+            this.labelOrdinacija.Text = "Ordinacija za:";
+            // 
+            // comboBoxOrdinacije
+            // 
+            this.comboBoxOrdinacije.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOrdinacije.DropDownWidth = 175;
+            this.comboBoxOrdinacije.Enabled = false;
+            this.comboBoxOrdinacije.FormattingEnabled = true;
+            this.comboBoxOrdinacije.Items.AddRange(new object[] {
+            "Opšti pregled",
+            "Kardiološki pregled",
+            "Dermatološki pregled",
+            "Ortopedski pregled",
+            "Internistički pregled",
+            "Otorinolaringološki pregled",
+            "Oftamološki pregled",
+            "Laboratorijski pregled",
+            "Stomatološki pregled"});
+            this.comboBoxOrdinacije.Location = new System.Drawing.Point(143, 232);
+            this.comboBoxOrdinacije.Name = "comboBoxOrdinacije";
+            this.comboBoxOrdinacije.Size = new System.Drawing.Size(139, 22);
+            this.comboBoxOrdinacije.TabIndex = 10;
+            // 
+            // textBoxPotvrda
+            // 
+            this.textBoxPotvrda.Location = new System.Drawing.Point(143, 98);
+            this.textBoxPotvrda.Name = "textBoxPotvrda";
+            this.textBoxPotvrda.PasswordChar = '*';
+            this.textBoxPotvrda.Size = new System.Drawing.Size(139, 22);
+            this.textBoxPotvrda.TabIndex = 9;
+            // 
+            // labelPotvrda
+            // 
+            this.labelPotvrda.AutoSize = true;
+            this.labelPotvrda.Location = new System.Drawing.Point(21, 98);
+            this.labelPotvrda.Name = "labelPotvrda";
+            this.labelPotvrda.Size = new System.Drawing.Size(104, 14);
+            this.labelPotvrda.TabIndex = 8;
+            this.labelPotvrda.Text = "Potvrdi lozinku:";
+            // 
             // buttonPrikazPass
             // 
             this.buttonPrikazPass.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrikazPass.Image")));
@@ -328,23 +376,6 @@ namespace NasaMalaKlinika_WinFormApp
             this.groupBoxLicni.TabStop = false;
             this.groupBoxLicni.Text = "Lični podaci";
             // 
-            // labelPotvrda
-            // 
-            this.labelPotvrda.AutoSize = true;
-            this.labelPotvrda.Location = new System.Drawing.Point(21, 98);
-            this.labelPotvrda.Name = "labelPotvrda";
-            this.labelPotvrda.Size = new System.Drawing.Size(104, 14);
-            this.labelPotvrda.TabIndex = 8;
-            this.labelPotvrda.Text = "Potvrdi lozinku:";
-            // 
-            // textBoxPotvrda
-            // 
-            this.textBoxPotvrda.Location = new System.Drawing.Point(143, 98);
-            this.textBoxPotvrda.Name = "textBoxPotvrda";
-            this.textBoxPotvrda.PasswordChar = '*';
-            this.textBoxPotvrda.Size = new System.Drawing.Size(139, 22);
-            this.textBoxPotvrda.TabIndex = 9;
-            // 
             // buttonPonisti
             // 
             this.buttonPonisti.Location = new System.Drawing.Point(430, 361);
@@ -365,37 +396,6 @@ namespace NasaMalaKlinika_WinFormApp
             this.buttonRegistrujSe.UseVisualStyleBackColor = true;
             this.buttonRegistrujSe.Click += new System.EventHandler(this.buttonRegistrujSe_Click);
             // 
-            // comboBoxOrdinacije
-            // 
-            this.comboBoxOrdinacije.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxOrdinacije.DropDownWidth = 175;
-            this.comboBoxOrdinacije.Enabled = false;
-            this.comboBoxOrdinacije.FormattingEnabled = true;
-            this.comboBoxOrdinacije.Items.AddRange(new object[] {
-            "Opšti pregled",
-            "Kardiološki pregled",
-            "Dermatološki pregled",
-            "Ortopedski pregled",
-            "Internistički pregled",
-            "Otorinolaringološki pregled",
-            "Oftamološki pregled",
-            "Laboratorijski pregled",
-            "Stomatološki pregled"});
-            this.comboBoxOrdinacije.Location = new System.Drawing.Point(143, 232);
-            this.comboBoxOrdinacije.Name = "comboBoxOrdinacije";
-            this.comboBoxOrdinacije.Size = new System.Drawing.Size(139, 22);
-            this.comboBoxOrdinacije.TabIndex = 10;
-            // 
-            // labelOrdinacija
-            // 
-            this.labelOrdinacija.AutoSize = true;
-            this.labelOrdinacija.Enabled = false;
-            this.labelOrdinacija.Location = new System.Drawing.Point(21, 232);
-            this.labelOrdinacija.Name = "labelOrdinacija";
-            this.labelOrdinacija.Size = new System.Drawing.Size(94, 14);
-            this.labelOrdinacija.TabIndex = 11;
-            this.labelOrdinacija.Text = "Ordinacija za:";
-            // 
             // Registracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
@@ -406,9 +406,10 @@ namespace NasaMalaKlinika_WinFormApp
             this.Controls.Add(this.groupBoxLicni);
             this.Controls.Add(this.groupBoxLogin);
             this.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Registracija";
-            this.Text = "Registracija";
+            this.Text = "Naša Mala Klinika";
             this.groupBoxSpol.ResumeLayout(false);
             this.groupBoxSpol.PerformLayout();
             this.groupBoxLogin.ResumeLayout(false);

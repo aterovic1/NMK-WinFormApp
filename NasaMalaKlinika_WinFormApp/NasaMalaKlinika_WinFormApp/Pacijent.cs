@@ -20,15 +20,6 @@ namespace NasaMalaKlinika
         public string password { get; private set; }
         public Image slika;
 
-        public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, Image slika) :
-            base(ime, pre, rod, jmbg, adr, spol, brSt)
-        {
-            this.idPacijenta = PACIJENT_ID;
-            PACIJENT_ID++;
-            this.karton = null;
-            this.zakazaniPregledi = new List<Pregled>();
-            this.slika = slika;
-        }
         public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt) :
             base(ime, pre, rod, jmbg, adr, spol, brSt)
         {
@@ -42,7 +33,7 @@ namespace NasaMalaKlinika
         {
             this.idPacijenta = PACIJENT_ID;
             PACIJENT_ID++;
-            this.karton = null;
+            this.karton = karton;
             this.zakazaniPregledi = new List<Pregled>(zakazani);
             this.karton = karton;
             foreach(Pregled pregled in zakazani)
@@ -51,6 +42,22 @@ namespace NasaMalaKlinika
             }
             this.username = username;
             this.password = IzracunajMD5Hash(password);
+        }
+        public Pacijent(string ime, string pre, DateTime rod, string jmbg, string adr, Spol spol, string brSt, List<Pregled> zakazani, string username, string password, Image image) :
+            base(ime, pre, rod, jmbg, adr, spol, brSt)
+        {
+            this.idPacijenta = PACIJENT_ID;
+            PACIJENT_ID++;
+            this.karton = null;
+            this.zakazaniPregledi = new List<Pregled>(zakazani);
+            this.karton = karton;
+            foreach (Pregled pregled in zakazani)
+            {
+                pregled.ordinacija.StaviUListuCekanja(this);
+            }
+            this.username = username;
+            this.password = IzracunajMD5Hash(password);
+            this.slika = image;
         }
         public override string ToString()
         {

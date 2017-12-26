@@ -58,6 +58,11 @@ namespace NasaMalaKlinika_WinFormApp
                     DoktorForma doktorForma = new DoktorForma(ref ordinacija);
                     doktorForma.Show();
                 }
+                else if(uposlenik is Uposlenik)
+                {
+                    UposlenikForma uposlenikForma = new UposlenikForma();
+                    uposlenikForma.Show();
+                }
             }
             else
             {
@@ -205,7 +210,7 @@ namespace NasaMalaKlinika_WinFormApp
             Pacijent pacijent17395_4 = new Pacijent("Aida", "Halilovic", Convert.ToDateTime("06.06.2000."), "1402969145258", "Kasindolska 147", Spol.zensko, "Oženjen", karton17395_4, pregledi4, "ahalilovic", "123");
             Pacijent pacijent17395_5 = new Pacijent("Amar", "Cizmic", Convert.ToDateTime("11.08.1959"), "1402969145258", "Kasindolska 147", Spol.musko, "Neoženjen", karton17395_5, pregledi5, "acizmic", "123");
             Pacijent pacijent17395_6 = new HitniPacijent("Tarik", "Pribisic", Convert.ToDateTime("19.06.1988."), "1402969145258", "Kasindolska 147", Spol.musko, "Razveden", karton17395_6, pregledi6, "masaza srca", "tpribisic", "123");
-            Pacijent pacijent17395_7 = new PacijentSmrtniIshod("Benjamin", "Franklin", Convert.ToDateTime("29.05.1996."), "1402969145258", "Kasindolska 147", Spol.musko, "Oženjen", "masaza srca", Convert.ToDateTime("17.11.2017"), "srcani udar");
+            Pacijent pacijent17395_7 = new HitniPacijent("Benjamin", "Franklin", Convert.ToDateTime("29.05.1996."), "1402969145258", "Kasindolska 147", Spol.musko, "Oženjen", karton17395_7, pregledi7, "protuotrov", "bfranklin", "123");
             Pacijent pacijent17395_8 = new Pacijent("Nikola", "Tesla", Convert.ToDateTime("17.12.2005."), "1402969145258", "Kasindolska 147", Spol.musko, "Oženjen", karton17395_8, pregledi8, "ntesla", "123");
             Pacijent pacijent17395_9 = new HitniPacijent("Marija", "Maric", Convert.ToDateTime("09.10.1979."), "1402969145258", "Kasindolska 147", Spol.zensko, "Udovac", karton17395_9, pregledi9, "vjestacko disanje", "mmaric", "123");
             Pacijent pacijent17395_10 = new HitniPacijent("Hana", "Hanic", Convert.ToDateTime("06.09.1984."), "1402969145258", "Kasindolska 147", Spol.zensko, "Razveden", karton17395_10, pregledi10, "gips", "hhanic", "123");
@@ -226,6 +231,10 @@ namespace NasaMalaKlinika_WinFormApp
             Klinika.RegistrirajPacijenta(pacijent17395_10);
             Klinika.RegistrirajPacijenta(pacijent17395_11);
             Klinika.RegistrirajPacijenta(pacijent17395_12);
+            //
+            //jedan uposlenik za testiranje
+            //
+            Klinika.RegistrirajUposlenog(new Uposlenik("Jusuf", "Kvakic", Convert.ToDateTime("03.02.1991."), "0302991478521", "Hameda Buljubašića 7,", Spol.musko, "Udovac", 2400, "jkvakic", "admin"));
         }
 
         private void linkLabelRegistracija_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

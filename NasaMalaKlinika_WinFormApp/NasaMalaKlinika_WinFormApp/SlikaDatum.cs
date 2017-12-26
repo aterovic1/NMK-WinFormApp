@@ -33,5 +33,14 @@ namespace NasaMalaKlinika_WinFormApp
         {
 
         }
+        public void OcistiSlikuDatum()
+        {
+            dateTimePickerDatumSlike.ResetText();
+            pictureBoxSlika.Image = null;
+        }
+        public Image DajSliku()
+        {
+            return pictureBoxSlika.Image;
+        }
     }
 }

@@ -84,6 +84,12 @@
     <Compile Include="PacijentForma.Designer.cs">
       <DependentUpon>PacijentForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="PacijentRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacijentRegistracija.Designer.cs">
+      <DependentUpon>PacijentRegistracija.cs</DependentUpon>
+    </Compile>
     <Compile Include="PacijentSmrtniIshod.cs" />
     <Compile Include="Pregled.cs" />
     <Compile Include="Program.cs" />
@@ -101,6 +107,12 @@
       <DependentUpon>SlikaDatum.cs</DependentUpon>
     </Compile>
     <Compile Include="Uposlenik.cs" />
+    <Compile Include="UposlenikForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UposlenikForma.Designer.cs">
+      <DependentUpon>UposlenikForma.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DoktorForma.resx">
       <DependentUpon>DoktorForma.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +128,9 @@
     <EmbeddedResource Include="PacijentForma.resx">
       <DependentUpon>PacijentForma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PacijentRegistracija.resx">
+      <DependentUpon>PacijentRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -130,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SlikaDatum.resx">
       <DependentUpon>SlikaDatum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UposlenikForma.resx">
+      <DependentUpon>UposlenikForma.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

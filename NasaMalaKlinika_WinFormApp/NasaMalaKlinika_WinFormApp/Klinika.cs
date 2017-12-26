@@ -21,20 +21,6 @@ namespace NasaMalaKlinika
             new Ordinacija("Stomatološki pregled", 540),
             new Ordinacija("Opšti pregled", 300)
         };
-
-        /*public static List<Uposlenik> uposlenici = new List<Uposlenik> {
-
-        new Doktor("Meho", "Karabeg", Convert.ToDateTime("05.12.1975."), "0512975114528", "Behdzeta Mutevelica 56", Spol.musko, "Oženjen", 3500, "mkarabeg", "pass"),
-        new Doktor("Almir", "Kardovic", Convert.ToDateTime("15.08.1989."), "1508989147854", "Zmaja od Bosne 24", Spol.musko, "Neoženjen", 3000, "akardovic", "pass"),
-        new Doktor("Ena", "Hodzic", Convert.ToDateTime("07.12.1987."), "0712987452369", "Aleja Bosne srebrene 47", Spol.zensko, "Razvedena", 2700, "ehodzic", "pass"),
-        new Doktor("Alma", "Masic", Convert.ToDateTime("12.01.1965."), "1201965211478", "Safeta Zajke 158", Spol.zensko, "Udata", 1900, "mkarabeg", "amasic"),
-        new Doktor("Arnes", "Sehovic", Convert.ToDateTime("21.07.1970."), "2107970856654", "Alibega Firdusa 77", Spol.musko, "Razveden", 2350, "asehovic", "pass"),
-        new Doktor("Irma", "Dedovic", Convert.ToDateTime("29.06.1979."), "2906979147521", "Paromlinska 63", Spol.zensko, "Udata", 4100, "mkarabeg", "idedovic"),
-        new Doktor("Asim", "Omerovic", Convert.ToDateTime("01.11.1984."), "0111984663281", "Nedima Filipovica 12", Spol.musko, "neoženjen", 3560, "aomerovic", "pass"),
-        new Doktor("Lejla", "Durakovic", Convert.ToDateTime("10.03.1976."), "1003976541219", "Avdage Sahinagica 19", Spol.zensko, "Udovica", 2180, "ldurakovic", "pass"),
-        new Doktor("Osman", "Kustura", Convert.ToDateTime("14.02.1969."), "1402969365241", "Kasindolska 147", Spol.musko, "Oženjen", 3250, "okustura", "pass")
-        };*/
-
         public static List<Uposlenik> uposlenici = new List<Uposlenik>();
         private static decimal ukupnaZarada = 0;
 
