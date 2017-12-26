@@ -251,7 +251,7 @@ namespace NasaMalaKlinika_WinFormApp
             //
             //jedan uposlenik za testiranje
             //
-            Klinika.RegistrirajUposlenog(new Uposlenik("Jusuf", "Kvakic", Convert.ToDateTime("03.02.1991."), "0302991478521", "Hameda Buljubašića 7,", Spol.musko, "Udovac", 2400, "jkvakic", "admin"));
+            Klinika.RegistrirajUposlenog(new Uposlenik("admin", "admin", Convert.ToDateTime("03.02.1991."), "0302991478521", "Hameda Buljubašića 7,", Spol.musko, "Udovac", 2400, "admin", "admin"));
         }
 
         private void linkLabelRegistracija_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -13,10 +13,12 @@ namespace NasaMalaKlinika_WinFormApp
 {
     public partial class PacijentRegistracija : Form
     {
+
         public PacijentRegistracija()
         {
             InitializeComponent();
         }
+
         private void radioButtonZensko_CheckedChanged(object sender, EventArgs e)
         {
             comboBoxBrStanje.Items.Clear();
@@ -103,6 +105,8 @@ namespace NasaMalaKlinika_WinFormApp
             if(MessageBox.Show("Pacijent uspješno registrovan", "", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 this.Close();
+                KartonUnos kartonUnos = new KartonUnos(ref pacijent);
+                kartonUnos.Show();
             }
         }
 

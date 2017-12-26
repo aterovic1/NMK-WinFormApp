@@ -50,9 +50,41 @@ namespace NasaMalaKlinika
         {
             uposlenici.Add(u);
         }
-        public static Pacijent DajPacijentaSaImenom(string ime, string prezime)
+        public static List<Pacijent> DajPacijenteSaImenom(string ime)
         {
-            return pacijenti.Find(p => p.ime == ime && p.prezime == prezime);
+            List<Pacijent> pacijenti = new List<Pacijent>();
+            foreach(Pacijent pacijent in pacijenti)
+            {
+                if(pacijent.ime == ime)
+                {
+                    pacijenti.Add(pacijent);
+                }
+            }
+            return pacijenti;
+        }
+        public static List<Pacijent> DajPacijenteSaPrezimenom(string prezime)
+        {
+            List<Pacijent> pacijenti = new List<Pacijent>();
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (pacijent.prezime == prezime)
+                {
+                    pacijenti.Add(pacijent);
+                }
+            }
+            return pacijenti;
+        }
+        public static List<Pacijent> DajPacijenteSaImenomPrezimenom(string punoIme)
+        {
+            List<Pacijent> pacijenti = new List<Pacijent>();
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (pacijent.DajPunoIme() == punoIme)
+                {
+                    pacijenti.Add(pacijent);
+                }
+            }
+            return pacijenti;
         }
         public static void PoveziDoktoraSaOrdinacijom(Ordinacija ordinacija, Doktor doktor)
         {
@@ -78,10 +110,7 @@ namespace NasaMalaKlinika
         }
         public static void IzbrisiPacijenta(Pacijent p)
         {
-            if (pacijenti.Exists(x => x.idPacijenta == p.idPacijenta))
-                pacijenti.Remove(p);
-            else
-                throw new Exception("Ne postoji taj pacijent");
+            pacijenti.Remove(p);
         }
         public static void PrikaziPregledePacijenta(Pacijent p)
         {
