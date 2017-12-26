@@ -106,7 +106,7 @@
             // pictureBoxSlika
             // 
             this.pictureBoxSlika.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSlika.Image")));
-            this.pictureBoxSlika.Location = new System.Drawing.Point(488, 35);
+            this.pictureBoxSlika.Location = new System.Drawing.Point(495, 35);
             this.pictureBoxSlika.Name = "pictureBoxSlika";
             this.pictureBoxSlika.Size = new System.Drawing.Size(130, 127);
             this.pictureBoxSlika.TabIndex = 3;
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 361);
+            this.ClientSize = new System.Drawing.Size(676, 361);
             this.Controls.Add(this.labelImePrezime);
             this.Controls.Add(this.labelDug);
             this.Controls.Add(this.labelPoruka);
@@ -154,7 +154,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "PacijentForma";
-            this.Text = "Dobrodošli u NMK";
+            this.Text = "Naša Mala Klinika";
             this.Load += new System.EventHandler(this.PacijentForma_Load);
             this.groupBoxKarton.ResumeLayout(false);
             this.groupBoxZakazani.ResumeLayout(false);
