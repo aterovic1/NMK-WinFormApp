@@ -29,6 +29,7 @@ namespace NasaMalaKlinika_WinFormApp
         {
             AzurirajDrvo();
             buttonObrisi.Enabled = false;
+            textBox1.Enabled = false;
         }
 
         private void AzurirajDrvo()
@@ -47,6 +48,7 @@ namespace NasaMalaKlinika_WinFormApp
 
         private void comboBoxPretraga_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBox1.Enabled = true;
             listBoxRezultatPretrage.Items.Clear();
             if (comboBoxPretraga.SelectedIndex == 0)
             {
