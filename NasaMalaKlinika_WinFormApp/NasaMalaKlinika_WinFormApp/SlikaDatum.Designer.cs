@@ -28,26 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBoxSlika = new System.Windows.Forms.PictureBox();
             this.buttonUcitajSliku = new System.Windows.Forms.Button();
             this.dateTimePickerDatumSlike = new System.Windows.Forms.DateTimePicker();
             this.labelDatumSlike = new System.Windows.Forms.Label();
+            this.errorProviderDatumSlike = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlika)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDatumSlike)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxSlika
             // 
-            this.pictureBoxSlika.Location = new System.Drawing.Point(40, 9);
+            this.pictureBoxSlika.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBoxSlika.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSlika.Location = new System.Drawing.Point(22, 9);
             this.pictureBoxSlika.Name = "pictureBoxSlika";
-            this.pictureBoxSlika.Size = new System.Drawing.Size(128, 128);
+            this.pictureBoxSlika.Size = new System.Drawing.Size(158, 128);
             this.pictureBoxSlika.TabIndex = 0;
             this.pictureBoxSlika.TabStop = false;
             // 
             // buttonUcitajSliku
             // 
-            this.buttonUcitajSliku.Location = new System.Drawing.Point(40, 143);
+            this.buttonUcitajSliku.Location = new System.Drawing.Point(22, 143);
             this.buttonUcitajSliku.Name = "buttonUcitajSliku";
-            this.buttonUcitajSliku.Size = new System.Drawing.Size(128, 30);
+            this.buttonUcitajSliku.Size = new System.Drawing.Size(158, 30);
             this.buttonUcitajSliku.TabIndex = 1;
             this.buttonUcitajSliku.Text = "Učitaj sliku";
             this.buttonUcitajSliku.UseVisualStyleBackColor = true;
@@ -55,11 +60,13 @@
             // 
             // dateTimePickerDatumSlike
             // 
-            this.dateTimePickerDatumSlike.Location = new System.Drawing.Point(3, 212);
+            this.dateTimePickerDatumSlike.Location = new System.Drawing.Point(22, 212);
             this.dateTimePickerDatumSlike.Name = "dateTimePickerDatumSlike";
-            this.dateTimePickerDatumSlike.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDatumSlike.Size = new System.Drawing.Size(158, 20);
             this.dateTimePickerDatumSlike.TabIndex = 2;
             this.dateTimePickerDatumSlike.ValueChanged += new System.EventHandler(this.dateTimePickerDatumSlike_ValueChanged);
+            this.dateTimePickerDatumSlike.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePickerDatumSlike_Validating);
+            this.dateTimePickerDatumSlike.Validated += new System.EventHandler(this.dateTimePickerDatumSlike_Validated);
             // 
             // labelDatumSlike
             // 
@@ -69,6 +76,10 @@
             this.labelDatumSlike.Size = new System.Drawing.Size(76, 13);
             this.labelDatumSlike.TabIndex = 3;
             this.labelDatumSlike.Text = "Datum slikanja";
+            // 
+            // errorProviderDatumSlike
+            // 
+            this.errorProviderDatumSlike.ContainerControl = this;
             // 
             // SlikaDatum
             // 
@@ -81,6 +92,7 @@
             this.Name = "SlikaDatum";
             this.Size = new System.Drawing.Size(205, 247);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlika)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderDatumSlike)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +104,6 @@
         private System.Windows.Forms.Button buttonUcitajSliku;
         private System.Windows.Forms.DateTimePicker dateTimePickerDatumSlike;
         private System.Windows.Forms.Label labelDatumSlike;
+        private System.Windows.Forms.ErrorProvider errorProviderDatumSlike;
     }
 }

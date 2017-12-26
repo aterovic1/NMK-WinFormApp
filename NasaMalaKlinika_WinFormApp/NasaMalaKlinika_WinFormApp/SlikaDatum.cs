@@ -27,6 +27,7 @@ namespace NasaMalaKlinika_WinFormApp
                     pictureBoxSlika.Image = new Bitmap(dlg.FileName);
                 }
             }
+            pictureBoxSlika.BackgroundImageLayout = ImageLayout.Center;
         }
 
         private void dateTimePickerDatumSlike_ValueChanged(object sender, EventArgs e)
@@ -41,6 +42,20 @@ namespace NasaMalaKlinika_WinFormApp
         public Image DajSliku()
         {
             return pictureBoxSlika.Image;
+        }
+
+        private void dateTimePickerDatumSlike_Validating(object sender, CancelEventArgs e)
+        {
+            if(dateTimePickerDatumSlike.Value < DateTime.Now.AddMonths(-6))
+            {
+                e.Cancel = true;
+                errorProviderDatumSlike.SetError(dateTimePickerDatumSlike, "Slika ne smije biti starija od 6 mjeseci");
+            }
+        }
+
+        private void dateTimePickerDatumSlike_Validated(object sender, EventArgs e)
+        {
+            errorProviderDatumSlike.SetError(dateTimePickerDatumSlike, "");
         }
     }
 }
