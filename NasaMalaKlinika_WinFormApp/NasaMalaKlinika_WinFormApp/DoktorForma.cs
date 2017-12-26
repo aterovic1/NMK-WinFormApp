@@ -140,5 +140,17 @@ namespace NasaMalaKlinika_WinFormApp
         {
             richTextBoxDetaljno.Text = "";
         }
+
+        private void našaMalaKllinikaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // otvara formu statistika
+            StatistikaForma statistikaForma = new StatistikaForma();
+            statistikaForma.Show();
+        }
+
+        private void odjavaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

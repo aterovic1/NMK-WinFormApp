@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PacijentForma));
             this.groupBoxKarton = new System.Windows.Forms.GroupBox();
             this.richTextBoxKarton = new System.Windows.Forms.RichTextBox();
@@ -36,13 +37,20 @@
             this.groupBoxObavljeni = new System.Windows.Forms.GroupBox();
             this.richTextBoxObavljeni = new System.Windows.Forms.RichTextBox();
             this.pictureBoxSlika = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.zoomInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoomOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotirajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelPoruka = new System.Windows.Forms.Label();
             this.labelDug = new System.Windows.Forms.Label();
             this.labelImePrezime = new System.Windows.Forms.Label();
+            this.ulijevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.udesnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxKarton.SuspendLayout();
             this.groupBoxZakazani.SuspendLayout();
             this.groupBoxObavljeni.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlika)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxKarton
@@ -105,12 +113,48 @@
             // 
             // pictureBoxSlika
             // 
-            this.pictureBoxSlika.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSlika.Image")));
+            this.pictureBoxSlika.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSlika.ContextMenuStrip = this.contextMenuStrip1;
             this.pictureBoxSlika.Location = new System.Drawing.Point(495, 35);
             this.pictureBoxSlika.Name = "pictureBoxSlika";
-            this.pictureBoxSlika.Size = new System.Drawing.Size(130, 127);
+            this.pictureBoxSlika.Size = new System.Drawing.Size(128, 128);
             this.pictureBoxSlika.TabIndex = 3;
             this.pictureBoxSlika.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.zoomInToolStripMenuItem,
+            this.zoomOutToolStripMenuItem,
+            this.rotirajToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            // 
+            // zoomInToolStripMenuItem
+            // 
+            this.zoomInToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zoomInToolStripMenuItem.Image")));
+            this.zoomInToolStripMenuItem.Name = "zoomInToolStripMenuItem";
+            this.zoomInToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zoomInToolStripMenuItem.Text = "Zoom in";
+            this.zoomInToolStripMenuItem.Click += new System.EventHandler(this.zoomInToolStripMenuItem_Click);
+            // 
+            // zoomOutToolStripMenuItem
+            // 
+            this.zoomOutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("zoomOutToolStripMenuItem.Image")));
+            this.zoomOutToolStripMenuItem.Name = "zoomOutToolStripMenuItem";
+            this.zoomOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zoomOutToolStripMenuItem.Text = "Zoom out";
+            this.zoomOutToolStripMenuItem.Click += new System.EventHandler(this.zoomOutToolStripMenuItem_Click);
+            // 
+            // rotirajToolStripMenuItem
+            // 
+            this.rotirajToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ulijevoToolStripMenuItem,
+            this.udesnoToolStripMenuItem});
+            this.rotirajToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rotirajToolStripMenuItem.Image")));
+            this.rotirajToolStripMenuItem.Name = "rotirajToolStripMenuItem";
+            this.rotirajToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rotirajToolStripMenuItem.Text = "Rotiraj";
             // 
             // labelPoruka
             // 
@@ -138,6 +182,22 @@
             this.labelImePrezime.Size = new System.Drawing.Size(0, 14);
             this.labelImePrezime.TabIndex = 6;
             // 
+            // ulijevoToolStripMenuItem
+            // 
+            this.ulijevoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ulijevoToolStripMenuItem.Image")));
+            this.ulijevoToolStripMenuItem.Name = "ulijevoToolStripMenuItem";
+            this.ulijevoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ulijevoToolStripMenuItem.Text = "Ulijevo";
+            this.ulijevoToolStripMenuItem.Click += new System.EventHandler(this.ulijevoToolStripMenuItem_Click);
+            // 
+            // udesnoToolStripMenuItem
+            // 
+            this.udesnoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("udesnoToolStripMenuItem.Image")));
+            this.udesnoToolStripMenuItem.Name = "udesnoToolStripMenuItem";
+            this.udesnoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.udesnoToolStripMenuItem.Text = "Udesno";
+            this.udesnoToolStripMenuItem.Click += new System.EventHandler(this.udesnoToolStripMenuItem_Click);
+            // 
             // PacijentForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
@@ -160,6 +220,7 @@
             this.groupBoxZakazani.ResumeLayout(false);
             this.groupBoxObavljeni.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSlika)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +238,11 @@
         private System.Windows.Forms.Label labelPoruka;
         private System.Windows.Forms.Label labelDug;
         private System.Windows.Forms.Label labelImePrezime;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem zoomInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zoomOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotirajToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ulijevoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem udesnoToolStripMenuItem;
     }
 }

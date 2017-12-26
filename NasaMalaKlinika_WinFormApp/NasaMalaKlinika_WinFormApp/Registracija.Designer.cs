@@ -31,6 +31,7 @@ namespace NasaMalaKlinika_WinFormApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registracija));
             this.labelIme = new System.Windows.Forms.Label();
             this.labelPrezime = new System.Windows.Forms.Label();
@@ -63,9 +64,26 @@ namespace NasaMalaKlinika_WinFormApp
             this.groupBoxLicni = new System.Windows.Forms.GroupBox();
             this.buttonPonisti = new System.Windows.Forms.Button();
             this.buttonRegistrujSe = new System.Windows.Forms.Button();
+            this.errorProviderIme = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPrezime = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderJMBG = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderAdresa = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderKorisnickoIme = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderPotvrda = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderLozinka = new System.Windows.Forms.ErrorProvider(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelGreska = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBoxSpol.SuspendLayout();
             this.groupBoxLogin.SuspendLayout();
             this.groupBoxLicni.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderIme)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrezime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderJMBG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdresa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderKorisnickoIme)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPotvrda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLozinka)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelIme
@@ -94,7 +112,9 @@ namespace NasaMalaKlinika_WinFormApp
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(150, 22);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox1_Validating);
+            this.textBox1.Validated += new System.EventHandler(this.textBox1_Validated);
             // 
             // textBox2
             // 
@@ -102,7 +122,9 @@ namespace NasaMalaKlinika_WinFormApp
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(150, 22);
-            this.textBox2.TabIndex = 3;
+            this.textBox2.TabIndex = 2;
+            this.textBox2.Validating += new System.ComponentModel.CancelEventHandler(this.textBox2_Validating);
+            this.textBox2.Validated += new System.EventHandler(this.textBox2_Validated);
             // 
             // groupBoxSpol
             // 
@@ -121,7 +143,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.radioButtonZensko.Location = new System.Drawing.Point(109, 55);
             this.radioButtonZensko.Name = "radioButtonZensko";
             this.radioButtonZensko.Size = new System.Drawing.Size(71, 18);
-            this.radioButtonZensko.TabIndex = 1;
+            this.radioButtonZensko.TabIndex = 4;
             this.radioButtonZensko.TabStop = true;
             this.radioButtonZensko.Text = "Žensko";
             this.radioButtonZensko.UseVisualStyleBackColor = true;
@@ -133,7 +155,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.radioButtonMusko.Location = new System.Drawing.Point(109, 21);
             this.radioButtonMusko.Name = "radioButtonMusko";
             this.radioButtonMusko.Size = new System.Drawing.Size(65, 18);
-            this.radioButtonMusko.TabIndex = 0;
+            this.radioButtonMusko.TabIndex = 3;
             this.radioButtonMusko.TabStop = true;
             this.radioButtonMusko.Text = "Muško";
             this.radioButtonMusko.UseVisualStyleBackColor = true;
@@ -162,14 +184,18 @@ namespace NasaMalaKlinika_WinFormApp
             this.textBoxJMBG.Location = new System.Drawing.Point(132, 224);
             this.textBoxJMBG.Name = "textBoxJMBG";
             this.textBoxJMBG.Size = new System.Drawing.Size(150, 22);
-            this.textBoxJMBG.TabIndex = 7;
+            this.textBoxJMBG.TabIndex = 5;
+            this.textBoxJMBG.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxJMBG_Validating);
+            this.textBoxJMBG.Validated += new System.EventHandler(this.textBoxJMBG_Validated);
             // 
             // textBoxAdresa
             // 
             this.textBoxAdresa.Location = new System.Drawing.Point(132, 257);
             this.textBoxAdresa.Name = "textBoxAdresa";
             this.textBoxAdresa.Size = new System.Drawing.Size(150, 22);
-            this.textBoxAdresa.TabIndex = 8;
+            this.textBoxAdresa.TabIndex = 6;
+            this.textBoxAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxAdresa_Validating);
+            this.textBoxAdresa.Validated += new System.EventHandler(this.textBoxAdresa_Validated);
             // 
             // comboBoxBrStanje
             // 
@@ -182,7 +208,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.comboBoxBrStanje.Location = new System.Drawing.Point(132, 291);
             this.comboBoxBrStanje.Name = "comboBoxBrStanje";
             this.comboBoxBrStanje.Size = new System.Drawing.Size(150, 22);
-            this.comboBoxBrStanje.TabIndex = 0;
+            this.comboBoxBrStanje.TabIndex = 7;
             // 
             // labelBrStanje
             // 
@@ -198,7 +224,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.dateTimePicker1.Location = new System.Drawing.Point(132, 322);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(237, 22);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dateTimePicker1.TabIndex = 8;
             // 
             // labelDatumRod
             // 
@@ -259,7 +285,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.comboBoxOrdinacije.Location = new System.Drawing.Point(143, 232);
             this.comboBoxOrdinacije.Name = "comboBoxOrdinacije";
             this.comboBoxOrdinacije.Size = new System.Drawing.Size(139, 22);
-            this.comboBoxOrdinacije.TabIndex = 10;
+            this.comboBoxOrdinacije.TabIndex = 14;
             // 
             // textBoxPotvrda
             // 
@@ -267,7 +293,9 @@ namespace NasaMalaKlinika_WinFormApp
             this.textBoxPotvrda.Name = "textBoxPotvrda";
             this.textBoxPotvrda.PasswordChar = '*';
             this.textBoxPotvrda.Size = new System.Drawing.Size(139, 22);
-            this.textBoxPotvrda.TabIndex = 9;
+            this.textBoxPotvrda.TabIndex = 11;
+            this.textBoxPotvrda.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPotvrda_Validating);
+            this.textBoxPotvrda.Validated += new System.EventHandler(this.textBoxPotvrda_Validated);
             // 
             // labelPotvrda
             // 
@@ -281,7 +309,7 @@ namespace NasaMalaKlinika_WinFormApp
             // buttonPrikazPass
             // 
             this.buttonPrikazPass.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrikazPass.Image")));
-            this.buttonPrikazPass.Location = new System.Drawing.Point(286, 64);
+            this.buttonPrikazPass.Location = new System.Drawing.Point(256, 126);
             this.buttonPrikazPass.Name = "buttonPrikazPass";
             this.buttonPrikazPass.Size = new System.Drawing.Size(26, 22);
             this.buttonPrikazPass.TabIndex = 7;
@@ -294,7 +322,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.radioButtonObicni.Location = new System.Drawing.Point(143, 183);
             this.radioButtonObicni.Name = "radioButtonObicni";
             this.radioButtonObicni.Size = new System.Drawing.Size(154, 18);
-            this.radioButtonObicni.TabIndex = 6;
+            this.radioButtonObicni.TabIndex = 13;
             this.radioButtonObicni.TabStop = true;
             this.radioButtonObicni.Text = "Nemedicinska osoba";
             this.radioButtonObicni.UseVisualStyleBackColor = true;
@@ -306,7 +334,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.radioButtonDoktor.Location = new System.Drawing.Point(143, 154);
             this.radioButtonDoktor.Name = "radioButtonDoktor";
             this.radioButtonDoktor.Size = new System.Drawing.Size(67, 18);
-            this.radioButtonDoktor.TabIndex = 5;
+            this.radioButtonDoktor.TabIndex = 12;
             this.radioButtonDoktor.TabStop = true;
             this.radioButtonDoktor.Text = "Doktor";
             this.radioButtonDoktor.UseVisualStyleBackColor = true;
@@ -327,14 +355,19 @@ namespace NasaMalaKlinika_WinFormApp
             this.textBoxPass.Name = "textBoxPass";
             this.textBoxPass.PasswordChar = '*';
             this.textBoxPass.Size = new System.Drawing.Size(139, 22);
-            this.textBoxPass.TabIndex = 3;
+            this.textBoxPass.TabIndex = 10;
+            this.textBoxPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPass_KeyUp);
+            this.textBoxPass.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPass_Validating);
+            this.textBoxPass.Validated += new System.EventHandler(this.textBoxPass_Validated);
             // 
             // textBoxUser
             // 
             this.textBoxUser.Location = new System.Drawing.Point(143, 33);
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(139, 22);
-            this.textBoxUser.TabIndex = 2;
+            this.textBoxUser.TabIndex = 9;
+            this.textBoxUser.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxUser_Validating);
+            this.textBoxUser.Validated += new System.EventHandler(this.textBoxUser_Validated);
             // 
             // labelPass
             // 
@@ -396,27 +429,83 @@ namespace NasaMalaKlinika_WinFormApp
             this.buttonRegistrujSe.UseVisualStyleBackColor = true;
             this.buttonRegistrujSe.Click += new System.EventHandler(this.buttonRegistrujSe_Click);
             // 
+            // errorProviderIme
+            // 
+            this.errorProviderIme.ContainerControl = this;
+            // 
+            // errorProviderPrezime
+            // 
+            this.errorProviderPrezime.ContainerControl = this;
+            // 
+            // errorProviderJMBG
+            // 
+            this.errorProviderJMBG.ContainerControl = this;
+            // 
+            // errorProviderAdresa
+            // 
+            this.errorProviderAdresa.ContainerControl = this;
+            // 
+            // errorProviderKorisnickoIme
+            // 
+            this.errorProviderKorisnickoIme.ContainerControl = this;
+            // 
+            // errorProviderPotvrda
+            // 
+            this.errorProviderPotvrda.ContainerControl = this;
+            // 
+            // errorProviderLozinka
+            // 
+            this.errorProviderLozinka.ContainerControl = this;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelGreska});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 406);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.TabIndex = 16;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelGreska
+            // 
+            this.toolStripStatusLabelGreska.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelGreska.Name = "toolStripStatusLabelGreska";
+            this.toolStripStatusLabelGreska.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabelGreska.Text = " ";
+            // 
             // Registracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 428);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonRegistrujSe);
             this.Controls.Add(this.buttonPonisti);
             this.Controls.Add(this.groupBoxLicni);
             this.Controls.Add(this.groupBoxLogin);
             this.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Registracija";
-            this.Text = "Naša Mala Klinika";
+            this.Text = "Registracija";
+            this.Load += new System.EventHandler(this.Registracija_Load);
             this.groupBoxSpol.ResumeLayout(false);
             this.groupBoxSpol.PerformLayout();
             this.groupBoxLogin.ResumeLayout(false);
             this.groupBoxLogin.PerformLayout();
             this.groupBoxLicni.ResumeLayout(false);
             this.groupBoxLicni.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderIme)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPrezime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderJMBG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdresa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderKorisnickoIme)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderPotvrda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderLozinka)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -453,5 +542,14 @@ namespace NasaMalaKlinika_WinFormApp
         private Button buttonRegistrujSe;
         private Label labelOrdinacija;
         private ComboBox comboBoxOrdinacije;
+        private ErrorProvider errorProviderIme;
+        private ErrorProvider errorProviderPrezime;
+        private ErrorProvider errorProviderJMBG;
+        private ErrorProvider errorProviderAdresa;
+        private ErrorProvider errorProviderKorisnickoIme;
+        private ErrorProvider errorProviderPotvrda;
+        private ErrorProvider errorProviderLozinka;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabelGreska;
     }
 }

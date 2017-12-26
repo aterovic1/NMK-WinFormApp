@@ -38,38 +38,55 @@ namespace NasaMalaKlinika_WinFormApp
 
         private void buttonPrijava_Click(object sender, EventArgs e)
         {
-            if (textBoxUsername.Text.Length == 0 && textBoxPassword.Text.Length == 0)
+            if(textBoxUsername.Text == "" || textBoxPassword.Text.Count() == 0)
             {
-                DoktorForma doktor = new DoktorForma();
-                doktor.Show();
+                toolStripStatusLabelGreska.Text = "Niste unijeli korisničko ime ili lozinku.";
+                return;
             }
-            Uposlenik uposlenik = Klinika.uposlenici.Find(x => x.username == textBoxUsername.Text && x.password == IzracunajMD5Hash(textBoxPassword.Text));
+            Uposlenik uposlenik = Klinika.uposlenici.Find(x => x.username == textBoxUsername.Text);
             if (uposlenik != null)
             {
-                if (uposlenik is Doktor)
+                if(IzracunajMD5Hash(textBoxPassword.Text) == uposlenik.password)
                 {
-                    //string s = "Uspjesno prijavljen " + u.ime + " " + u.prezime;
-                    //MessageBox.Show(s);
-                    Ordinacija ordinacija = Klinika.ordinacije.Find(x => x.doktor == uposlenik);
-                    if (ordinacija == null)
+                    if (uposlenik is Doktor)
                     {
-                        throw new Exception("Doktor nije niti u jednoj ordinaciji");
+                        Ordinacija ordinacija = Klinika.ordinacije.Find(x => x.doktor == uposlenik);
+                        DoktorForma doktorForma = new DoktorForma(ref ordinacija);
+                        doktorForma.Show();
                     }
-                    DoktorForma doktorForma = new DoktorForma(ref ordinacija);
-                    doktorForma.Show();
+                    else if (uposlenik is Uposlenik)
+                    {
+                        UposlenikForma uposlenikForma = new UposlenikForma();
+                        uposlenikForma.Show();
+                    }
                 }
-                else if(uposlenik is Uposlenik)
+                else
                 {
-                    UposlenikForma uposlenikForma = new UposlenikForma();
-                    uposlenikForma.Show();
+                    toolStripStatusLabelGreska.Text = "Lozinka nije ispravna. Pokušajte ponovo.";
+                    return;
                 }
             }
             else
             {
                 //pacijent
-                Pacijent pacijent = Klinika.pacijenti.Find(x => x.username == textBoxUsername.Text && x.password == IzracunajMD5Hash(textBoxPassword.Text));
-                PacijentForma pacijentForma = new PacijentForma(ref pacijent);
-                pacijentForma.Show();
+                Pacijent pacijent = Klinika.pacijenti.Find(x => x.username == textBoxUsername.Text);
+                if (pacijent != null)
+                {
+                    if (IzracunajMD5Hash(textBoxPassword.Text) == pacijent.password)
+                    {
+                        PacijentForma pacijentForma = new PacijentForma(ref pacijent);
+                        pacijentForma.Show();
+                    }
+                    else
+                    {
+                        toolStripStatusLabelGreska.Text = "Lozinka nije ispravna. Pokušajte ponovo.";
+                        return;
+                    }
+                }
+                else
+                {
+                    toolStripStatusLabelGreska.Text = "Korisnik ne postoji.";
+                }
             }
         }
 

@@ -95,6 +95,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
             this.odjavaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.odjavaToolStripMenuItem.Text = "Odjava";
+            this.odjavaToolStripMenuItem.Click += new System.EventHandler(this.odjavaToolStripMenuItem_Click);
             // 
             // statistikaToolStripMenuItem
             // 
@@ -118,6 +119,7 @@ namespace NasaMalaKlinika_WinFormApp
             this.našaMalaKllinikaToolStripMenuItem.Name = "našaMalaKllinikaToolStripMenuItem";
             this.našaMalaKllinikaToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.našaMalaKllinikaToolStripMenuItem.Text = "Naša Mala Kllinika";
+            this.našaMalaKllinikaToolStripMenuItem.Click += new System.EventHandler(this.našaMalaKllinikaToolStripMenuItem_Click);
             // 
             // tabControlPregledi
             // 

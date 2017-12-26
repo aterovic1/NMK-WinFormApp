@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,6 +60,12 @@
     <Compile Include="HitniPacijent.cs" />
     <Compile Include="IObracun.cs" />
     <Compile Include="Karton.cs" />
+    <Compile Include="KartonUnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KartonUnos.Designer.cs">
+      <DependentUpon>KartonUnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Klinika.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -106,6 +116,12 @@
     <Compile Include="SlikaDatum.Designer.cs">
       <DependentUpon>SlikaDatum.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatistikaForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatistikaForma.Designer.cs">
+      <DependentUpon>StatistikaForma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uposlenik.cs" />
     <Compile Include="UposlenikForma.cs">
       <SubType>Form</SubType>
@@ -113,8 +129,12 @@
     <Compile Include="UposlenikForma.Designer.cs">
       <DependentUpon>UposlenikForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validacija.cs" />
     <EmbeddedResource Include="DoktorForma.resx">
       <DependentUpon>DoktorForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KartonUnos.resx">
+      <DependentUpon>KartonUnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -139,12 +159,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registracija.resx">
       <DependentUpon>Registracija.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SlikaDatum.resx">
       <DependentUpon>SlikaDatum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatistikaForma.resx">
+      <DependentUpon>StatistikaForma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UposlenikForma.resx">
       <DependentUpon>UposlenikForma.cs</DependentUpon>
@@ -161,6 +185,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_anon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anonymous-user-02-128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

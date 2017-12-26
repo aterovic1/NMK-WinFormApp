@@ -56,6 +56,7 @@ namespace NasaMalaKlinika_WinFormApp
             radioButtonSmrtni.Checked = false;
             checkedListBoxOrdinacije.ClearSelected();
             slikaDatum1.OcistiSlikuDatum();
+            checkedListBoxOrdinacije.Enabled = false;
         }
 
         private void buttonRegistrujSe_Click(object sender, EventArgs e)
@@ -69,9 +70,10 @@ namespace NasaMalaKlinika_WinFormApp
                 {
                     foreach(object o in checkedListBoxOrdinacije.CheckedItems)
                     {
-                        if(o.ToString().Equals(ordinacija.tipPregleda))
+                        if(o.Equals(ordinacija.tipPregleda))
                         {
                             zakazani.Add(new Pregled(ordinacija));
+                            break;
                         }
                     }
                 }
@@ -84,9 +86,10 @@ namespace NasaMalaKlinika_WinFormApp
                 {
                     foreach (object o in checkedListBoxOrdinacije.CheckedItems)
                     {
-                        if (o.ToString().Equals(ordinacija.tipPregleda))
+                        if (o.Equals(ordinacija.tipPregleda))
                         {
                             zakazani.Add(new Pregled(ordinacija));
+                            break;
                         }
                     }
                 }
@@ -97,10 +100,15 @@ namespace NasaMalaKlinika_WinFormApp
                 pacijent = new PacijentSmrtniIshod(textBox1.Text, textBox2.Text, dateTimePicker1.Value, textBoxJMBG.Text, textBoxAdresa.Text, odabraniSpol, comboBoxBrStanje.SelectedText, slikaDatum1.DajSliku(), textBoxPrvaPomoc.Text, textBoxUzrokSmrti.Text);
             }
             Klinika.RegistrirajPacijenta(pacijent);
+            if(MessageBox.Show("Pacijent uspješno registrovan", "", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void PacijentRegistracija_Load(object sender, EventArgs e)
         {
+
             radioButtonNormalni.Checked = true;
             labelPrvaPomoc.Enabled = false;
             labelUzrokSmrti.Enabled = false;
@@ -115,14 +123,18 @@ namespace NasaMalaKlinika_WinFormApp
             "Oftamološki pregled",
             "Laboratorijski pregled",
             "Stomatološki pregled"});
-            checkedListBoxOrdinacije.Enabled = false;
+            checkedListBoxOrdinacije.Enabled = true;
+            groupBoxLogin.Enabled = true;
         }
 
         private void radioButtonNormalni_CheckedChanged(object sender, EventArgs e)
         {
             checkedListBoxOrdinacije.Enabled = true;
+            textBoxUzrokSmrti.Enabled = false;
+            textBoxPrvaPomoc.Enabled = false;
             textBoxUzrokSmrti.ResetText();
             textBoxPrvaPomoc.ResetText();
+            groupBoxLogin.Enabled = true;
         }
 
         private void radioButtonHitni_CheckedChanged(object sender, EventArgs e)
@@ -130,7 +142,9 @@ namespace NasaMalaKlinika_WinFormApp
             checkedListBoxOrdinacije.Enabled = true;
             labelPrvaPomoc.Enabled = true;
             textBoxPrvaPomoc.Enabled = true;
+            textBoxUzrokSmrti.Enabled = false;
             textBoxUzrokSmrti.ResetText();
+            groupBoxLogin.Enabled = true;
         }
 
         private void radioButtonSmrtni_CheckedChanged(object sender, EventArgs e)
@@ -140,12 +154,7 @@ namespace NasaMalaKlinika_WinFormApp
             labelUzrokSmrti.Enabled = true;
             textBoxUzrokSmrti.Enabled = true;
             checkedListBoxOrdinacije.Enabled = false;
-            textBoxPass.ResetText();
-            textBoxUser.ResetText();
-            textBoxUser.Enabled = false;
-            textBoxPass.Enabled = false;
-            labelUser.Enabled = false;
-            labelPass.Enabled = false;
+            groupBoxLogin.Enabled = false;
         }
     }
 }

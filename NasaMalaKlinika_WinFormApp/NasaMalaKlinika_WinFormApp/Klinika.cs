@@ -133,10 +133,21 @@ namespace NasaMalaKlinika
             s += "-preko 50 godina: " + Math.Round(Convert.ToDouble(brPrekoPedeset) * 100 / pacijenti.Count(), 2) + "%\n";
             return s; 
         }   
+
+        public static List<int> _IntProcenatPacijenataPoGodinama()
+        {
+            List<int> procenti = new List<int>();
+            procenti.Add(pacijenti.Count(x => x.datumRođenja.AddYears(18) > DateTime.Now));
+            procenti.Add(pacijenti.Count(x => x.datumRođenja.AddYears(18) <= DateTime.Now && x.datumRođenja.AddYears(30) > DateTime.Now));
+            procenti.Add(pacijenti.Count(x => x.datumRođenja.AddYears(30) <= DateTime.Now && x.datumRođenja.AddYears(50) > DateTime.Now));
+            procenti.Add(pacijenti.Count(x => x.datumRođenja.AddYears(50) <= DateTime.Now));
+            return procenti;
+        }
+
         public static string NajposjecenijeOrdinacije()
         {
             var ord = ordinacije.OrderByDescending(x => x.doktor.brojPacijenata).ToList();
-            string s = "Najposjecenije ordinacije:\n";
+            string s = "";
             s += "1. " + ord.ElementAt(0).tipPregleda + " - " + "broj posjeta: " + Convert.ToString(ord.ElementAt(0).doktor.brojPacijenata) + "\n";
             s += "2. " + ord.ElementAt(1).tipPregleda + " - " + "broj posjeta: " + Convert.ToString(ord.ElementAt(1).doktor.brojPacijenata) + "\n";
             s += "3. " + ord.ElementAt(2).tipPregleda + " - " + "broj posjeta: " + Convert.ToString(ord.ElementAt(2).doktor.brojPacijenata) + "\n";

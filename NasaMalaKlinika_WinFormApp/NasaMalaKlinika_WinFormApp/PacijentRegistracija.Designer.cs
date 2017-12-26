@@ -76,9 +76,9 @@
             // 
             // buttonRegistrujSe
             // 
-            this.buttonRegistrujSe.Location = new System.Drawing.Point(354, 410);
+            this.buttonRegistrujSe.Location = new System.Drawing.Point(560, 410);
             this.buttonRegistrujSe.Name = "buttonRegistrujSe";
-            this.buttonRegistrujSe.Size = new System.Drawing.Size(145, 32);
+            this.buttonRegistrujSe.Size = new System.Drawing.Size(300, 32);
             this.buttonRegistrujSe.TabIndex = 19;
             this.buttonRegistrujSe.Text = "Registracija";
             this.buttonRegistrujSe.UseVisualStyleBackColor = true;
@@ -86,9 +86,9 @@
             // 
             // buttonPonisti
             // 
-            this.buttonPonisti.Location = new System.Drawing.Point(188, 410);
+            this.buttonPonisti.Location = new System.Drawing.Point(232, 410);
             this.buttonPonisti.Name = "buttonPonisti";
-            this.buttonPonisti.Size = new System.Drawing.Size(145, 32);
+            this.buttonPonisti.Size = new System.Drawing.Size(300, 32);
             this.buttonPonisti.TabIndex = 18;
             this.buttonPonisti.Text = "Poništi";
             this.buttonPonisti.UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@
             this.groupBoxLicni.Controls.Add(this.textBoxAdresa);
             this.groupBoxLicni.Controls.Add(this.textBoxJMBG);
             this.groupBoxLicni.Controls.Add(this.labelAdresa);
-            this.groupBoxLicni.Location = new System.Drawing.Point(21, 23);
+            this.groupBoxLicni.Location = new System.Drawing.Point(232, 23);
             this.groupBoxLicni.Name = "groupBoxLicni";
-            this.groupBoxLicni.Size = new System.Drawing.Size(664, 369);
+            this.groupBoxLicni.Size = new System.Drawing.Size(628, 369);
             this.groupBoxLicni.TabIndex = 17;
             this.groupBoxLicni.TabStop = false;
             this.groupBoxLicni.Text = "Lični podaci";
@@ -148,7 +148,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(415, 185);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(243, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(192, 22);
             this.dateTimePicker1.TabIndex = 10;
             // 
             // groupBoxLogin
@@ -162,7 +162,7 @@
             this.groupBoxLogin.Controls.Add(this.labelUser);
             this.groupBoxLogin.Location = new System.Drawing.Point(287, 223);
             this.groupBoxLogin.Name = "groupBoxLogin";
-            this.groupBoxLogin.Size = new System.Drawing.Size(320, 136);
+            this.groupBoxLogin.Size = new System.Drawing.Size(331, 136);
             this.groupBoxLogin.TabIndex = 16;
             this.groupBoxLogin.TabStop = false;
             this.groupBoxLogin.Text = "Login podaci";
@@ -172,7 +172,7 @@
             this.textBoxPotvrda.Location = new System.Drawing.Point(128, 98);
             this.textBoxPotvrda.Name = "textBoxPotvrda";
             this.textBoxPotvrda.PasswordChar = '*';
-            this.textBoxPotvrda.Size = new System.Drawing.Size(150, 22);
+            this.textBoxPotvrda.Size = new System.Drawing.Size(175, 22);
             this.textBoxPotvrda.TabIndex = 9;
             // 
             // labelPotvrda
@@ -187,7 +187,7 @@
             // buttonPrikazPass
             // 
             this.buttonPrikazPass.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrikazPass.Image")));
-            this.buttonPrikazPass.Location = new System.Drawing.Point(256, 65);
+            this.buttonPrikazPass.Location = new System.Drawing.Point(277, 65);
             this.buttonPrikazPass.Name = "buttonPrikazPass";
             this.buttonPrikazPass.Size = new System.Drawing.Size(26, 22);
             this.buttonPrikazPass.TabIndex = 7;
@@ -198,14 +198,14 @@
             this.textBoxPass.Location = new System.Drawing.Point(128, 65);
             this.textBoxPass.Name = "textBoxPass";
             this.textBoxPass.PasswordChar = '*';
-            this.textBoxPass.Size = new System.Drawing.Size(154, 22);
+            this.textBoxPass.Size = new System.Drawing.Size(175, 22);
             this.textBoxPass.TabIndex = 3;
             // 
             // textBoxUser
             // 
             this.textBoxUser.Location = new System.Drawing.Point(128, 30);
             this.textBoxUser.Name = "textBoxUser";
-            this.textBoxUser.Size = new System.Drawing.Size(150, 22);
+            this.textBoxUser.Size = new System.Drawing.Size(175, 22);
             this.textBoxUser.TabIndex = 2;
             // 
             // labelPass
@@ -263,7 +263,7 @@
             "Udovac"});
             this.comboBoxBrStanje.Location = new System.Drawing.Point(415, 154);
             this.comboBoxBrStanje.Name = "comboBoxBrStanje";
-            this.comboBoxBrStanje.Size = new System.Drawing.Size(150, 22);
+            this.comboBoxBrStanje.Size = new System.Drawing.Size(192, 22);
             this.comboBoxBrStanje.TabIndex = 0;
             // 
             // labelBrStanje
@@ -323,14 +323,14 @@
             // 
             this.textBoxAdresa.Location = new System.Drawing.Point(415, 126);
             this.textBoxAdresa.Name = "textBoxAdresa";
-            this.textBoxAdresa.Size = new System.Drawing.Size(150, 22);
+            this.textBoxAdresa.Size = new System.Drawing.Size(192, 22);
             this.textBoxAdresa.TabIndex = 8;
             // 
             // textBoxJMBG
             // 
             this.textBoxJMBG.Location = new System.Drawing.Point(415, 94);
             this.textBoxJMBG.Name = "textBoxJMBG";
-            this.textBoxJMBG.Size = new System.Drawing.Size(150, 22);
+            this.textBoxJMBG.Size = new System.Drawing.Size(192, 22);
             this.textBoxJMBG.TabIndex = 7;
             // 
             // labelAdresa
@@ -351,7 +351,7 @@
             this.groupBoxZakazivanje.Controls.Add(this.labelZakazi);
             this.groupBoxZakazivanje.Controls.Add(this.checkedListBoxOrdinacije);
             this.groupBoxZakazivanje.Controls.Add(this.groupBoxStanje);
-            this.groupBoxZakazivanje.Location = new System.Drawing.Point(700, 23);
+            this.groupBoxZakazivanje.Location = new System.Drawing.Point(26, 23);
             this.groupBoxZakazivanje.Name = "groupBoxZakazivanje";
             this.groupBoxZakazivanje.Size = new System.Drawing.Size(181, 419);
             this.groupBoxZakazivanje.TabIndex = 20;
@@ -459,7 +459,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 476);
+            this.ClientSize = new System.Drawing.Size(889, 476);
             this.Controls.Add(this.groupBoxZakazivanje);
             this.Controls.Add(this.buttonRegistrujSe);
             this.Controls.Add(this.buttonPonisti);

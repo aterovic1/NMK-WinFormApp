@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,23 @@ namespace NasaMalaKlinika_WinFormApp
 
         private void PacijentForma_Load(object sender, EventArgs e)
         {
+            if (pacijent.slika != null)
+            {
+                pictureBoxSlika.Image = pacijent.slika;
+            }
+            else
+            {
+                pictureBoxSlika.Image = Properties.Resources.user;
+            }
             richTextBoxKarton.Text = pacijent.karton.DajAnamnezu();
-            labelDug.Text = pacijent.DajDugPacijenta().ToString() + " KM";
+            if (pacijent.DajDugPacijenta() == 0)
+            {
+                labelDug.Text = "";
+            }
+            else
+            {
+                labelDug.Text = pacijent.DajDugPacijenta().ToString() + " KM";
+            }
             string imePrezime = pacijent.ime + " " + pacijent.prezime;
             labelImePrezime.Text = imePrezime;
             labelImePrezime.ForeColor = Color.Blue;
@@ -55,5 +71,28 @@ namespace NasaMalaKlinika_WinFormApp
             }
         }
 
+        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //pictureBoxSlika.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+        }
+
+        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           // pictureBoxSlika.BackgroundImageLayout = ImageLayout.Center;
+        }
+
+        private void ulijevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image slika = pictureBoxSlika.Image;
+            slika.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            pictureBoxSlika.Image = slika;
+        }
+
+        private void udesnoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image slika = pictureBoxSlika.Image;
+            slika.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            pictureBoxSlika.Image = slika;
+        }
     }
 }

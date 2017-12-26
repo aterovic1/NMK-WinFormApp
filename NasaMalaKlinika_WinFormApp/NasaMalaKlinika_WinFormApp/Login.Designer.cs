@@ -37,6 +37,9 @@
             this.labelRegistracija = new System.Windows.Forms.Label();
             this.buttonVidljivo = new System.Windows.Forms.Button();
             this.linkLabelRegistracija = new System.Windows.Forms.LinkLabel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelGreska = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonPrijava
@@ -113,12 +116,29 @@
             this.linkLabelRegistracija.Text = "Registrujte se sada";
             this.linkLabelRegistracija.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegistracija_LinkClicked);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelGreska});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 339);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(684, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelGreska
+            // 
+            this.toolStripStatusLabelGreska.ForeColor = System.Drawing.Color.Red;
+            this.toolStripStatusLabelGreska.Name = "toolStripStatusLabelGreska";
+            this.toolStripStatusLabelGreska.Size = new System.Drawing.Size(0, 17);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(684, 361);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.linkLabelRegistracija);
             this.Controls.Add(this.buttonVidljivo);
             this.Controls.Add(this.labelRegistracija);
@@ -134,6 +154,8 @@
             this.Text = "Naša Mala Klinika";
             this.Load += new System.EventHandler(this.Login_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_Paint);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +170,8 @@
         private System.Windows.Forms.Label labelRegistracija;
         private System.Windows.Forms.Button buttonVidljivo;
         private System.Windows.Forms.LinkLabel linkLabelRegistracija;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelGreska;
     }
 }
 
